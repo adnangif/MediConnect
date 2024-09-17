@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor's Profile</title>
-    <link rel="stylesheet" href="../css/doctor_profile_styles.css">
+    <link rel="stylesheet" href='/css/doctor_profile_styles.css'>
 </head>
+
 <body>
     <div class="profile-container">
         <div class="profile-header">
@@ -16,12 +18,14 @@
                 <p class="experience">Experience: 15 years</p>
             </div>
         </div>
-        
+
         <div class="profile-body">
             <h2>About Me</h2>
             <p>
-                Dr. Abir is a highly skilled cardiologist with over 15 years of experience in treating patients with heart conditions.
-                He is dedicated to providing the best care possible and staying updated with the latest advancements in cardiac medicine.
+                Dr. Abir is a highly skilled cardiologist with over 15 years of experience in treating patients with
+                heart conditions.
+                He is dedicated to providing the best care possible and staying updated with the latest advancements in
+                cardiac medicine.
             </p>
 
             <h2>Contact Information</h2>
@@ -32,4 +36,5 @@
         </div>
     </div>
 </body>
+
 </html>
