@@ -45,3 +45,7 @@ Route::get('/user/login/', function(){
 Route::get('/user/register/', function(){
     return view('user_register');
 });
+
+Route::get('/doctor/profile/', function(){
+    return view('doctor_profile');
+});
