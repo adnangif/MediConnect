@@ -49,3 +49,8 @@ Route::get('/user/register/', function(){
 Route::get('/doctor/profile/', function(){
     return view('doctor_profile');
 });
+
+
+Route::get('/user/profile/',function(){
+    return view('user_profile');
+});
