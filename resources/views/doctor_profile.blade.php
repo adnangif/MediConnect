@@ -9,7 +9,7 @@
 <body>
     <div class="profile-container">
         <div class="profile-header">
-            <img src="doctor-photo.jpg" alt="Doctor's Photo" class="profile-photo">
+            <img src="/image/doctorPic.jpeg" alt="Doctor's Photo" class="profile-photo">
             <div class="doctor-info">
                 <h1>Dr. Abir</h1>
                 <h3>Cardiologist</h3>
