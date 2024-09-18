@@ -1,56 +1,57 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\doctor_profile;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/all-appointments/', function(){
+Route::get('/all-appointments/', function () {
     return view('all_appointments');
 });
 
-Route::get('/book-appointment/', function(){
+Route::get('/book-appointment/', function () {
     return view('book_appointment');
 });
 
-Route::get('/consultation/', function(){
+Route::get('/consultation/', function () {
     return view('consultation_page');
 });
 
-Route::get('/doctor/login/', function(){
+Route::get('/doctor/login/', function () {
     return view('doctor_login');
 });
 
-Route::get('/doctor/register/', function(){
+Route::get('/doctor/register/', function () {
     return view('doctor_register');
 });
 
-Route::get("/prescription-details/", function(){
+Route::get("/prescription-details/", function () {
     return view('prescription_details');
 });
 
-Route::get('/prescription-write/', function(){
+Route::get('/prescription-write/', function () {
     return view('prescription-write');
 });
 
-Route::get('/search/', function(){
+Route::get('/search/', function () {
     return view('search_doctor');
 });
 
-Route::get('/user/login/', function(){
+Route::get('/user/login/', function () {
     return view('user_login');
 });
 
-Route::get('/user/register/', function(){
+Route::get('/user/register/', function () {
     return view('user_register');
 });
 
-Route::get('/doctor/profile/', function(){
-    return view('doctor_profile');
-});
 
 
-Route::get('/user/profile/',function(){
+Route::get('/doctor/profile/', [doctor_profile::class, 'index']);
+
+
+Route::get('/user/profile/', function () {
     return view('user_profile');
 });
