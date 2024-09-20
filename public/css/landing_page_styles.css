@@ -1,0 +1,133 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and container styles */
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    background-image: url('Virtual-Health-1.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 150px; /* Adjust as per logo size */
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #007bff; /* Blue theme */
+}
+
+.register {
+    background-color: transparent;
+}
+
+.sign-in {
+    background-color: transparent;
+}
+
+/* Site content */
+.site-content {
+    text-align: center;
+    margin-top: auto;
+}
+
+.site-name {
+    font-size: 4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.slogan {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 10px;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Get Started Button */
+.get-started {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 18px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 30px;
+}
+
+.get-started:hover {
+    background-color: white;
+    color: #007bff; /* Blue theme */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .site-name {
+        font-size: 3rem;
+    }
+
+    .slogan {
+        font-size: 1.2rem;
+    }
+
+    .logo img {
+        max-width: 100px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .get-started {
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+}
