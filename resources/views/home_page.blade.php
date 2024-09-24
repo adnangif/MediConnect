@@ -50,11 +50,11 @@
                     waiting in long lines at clinics. Whether it's a routine check-up or urgent care, MediConnect
                     ensures healthcare is always within reach.
                 </p>
-                <img width="300" src="/image/3_doctors_img.png" />
+                <img width="300" src="/image/easy-health-care.png" />
 
             </div>
             <div class="flex justify-center  gap-4 bg-white p-4 rounded">
-                <img width="300" src="/image/3_doctors_img.png" />
+                <img width="300" src="/image/timely-health-care.png" />
                 <p class="text-secondary">
                     Time is critical when it comes to your health, and MediConnect ensures you receive quick, reliable
                     medical advice. Our platform allows you to book same-day appointments, providing you with timely
@@ -69,11 +69,11 @@
                     protect your medical information and ensure that your consultations remain confidential. You can
                     trust that your personal health data is safe, giving you peace of mind during every interaction.
                 </p>
-                <img width="300" src="/image/3_doctors_img.png" />
+                <img width="300" src="/image/privacy-health-care.png" />
 
             </div>
             <div class="flex justify-center  gap-4 bg-white p-4 rounded">
-                <img width="300" src="/image/3_doctors_img.png" />
+                <img width="300" src="/image/best-doctor.png" />
                 <p class="text-secondary">
                     We partner with only the best healthcare professionals to provide you with the highest standard of
                     care. Every doctor on our platform is certified, experienced, and thoroughly vetted to ensure you
@@ -89,9 +89,11 @@
                     without the need for any technical knowledge. We make healthcare accessible to everyone, offering a
                     seamless and stress-free experience.
                 </p>
-                <img width="300" src="/image/3_doctors_img.png" />
+                <img width="300" src="/image/ease-of-use.png" />
 
             </div>
+
+            
 
         </div>
 
@@ -109,7 +111,7 @@
                     <button class='btn'>Register</button>
                 </div>
             </div>
-            <img class="responsive-img" src="/image/3_doctors_img.png" />
+            <img class="responsive-img" src="/image/as-a-patient.png" />
         </div>
 
         <div class="flex">
@@ -126,7 +128,7 @@
                     <button class='btn'>Register</button>
                 </div>
             </div>
-            <img class="responsive-img" src="/image/3_doctors_img.png" />
+            <img class="responsive-img" src="/image/as-a-doctor.png" />
         </div>
 
         <div class="section leading-3">
@@ -136,7 +138,7 @@
             <div class="grid gap-8">
 
                 <div class="flex flex-col gap-4">
-                    <img width="300" src="/image/3_doctors_img.png" />
+                    <img width="200" src="/image/dummy-person.png" />
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
                         <div class="font-thin">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
@@ -149,7 +151,7 @@
                 </div>
 
                 <div class="flex flex-col gap-4">
-                    <img width="300" src="/image/3_doctors_img.png" />
+                    <img width="200" src="/image/dummy-person.png" />
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
                         <div class="font-thin">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
@@ -162,7 +164,7 @@
                 </div>
 
                 <div class="flex flex-col gap-4">
-                    <img width="300" src="/image/3_doctors_img.png" />
+                    <img width="200" src="/image/dummy-person.png" />
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
                         <div class="font-thin">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
@@ -175,7 +177,7 @@
                 </div>
 
                 <div class="flex flex-col gap-4">
-                    <img width="300" src="/image/3_doctors_img.png" />
+                    <img width="200" src="/image/dummy-person.png" />
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
                         <div class="font-thin">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
@@ -186,6 +188,24 @@
                         <button class='btn'>Book An appointment</button>
                     </div>
                 </div>
+
+                <div class="flex flex-col gap-4">
+                    <img width="200" src="/image/dummy-person.png" />
+                    <div>
+                        <div class="font-bold">Muhammad Abdul Latif</div>
+                        <div class="font-thin">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
+                        <i class="uppercase font-thin">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
+                            Surgeon</i>
+                    </div>
+                    <div class="">
+                        <button class='btn'>Book An appointment</button>
+                    </div>
+                </div>
+
+
+
+
+
 
 
 
