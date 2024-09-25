@@ -2,13 +2,14 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: auto;
 }
 
 /* Body and container styles */
 body, html {
     height: 100%;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial', sans-serif; 
+    text-align: auto;
 }
 
 .container {
@@ -16,24 +17,34 @@ body, html {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
-    background-image: url('Virtual-Health-1.jpg'); /* Background image */
-    background-size: cover;
-    background-position: center;
-    color: white;
+    height: 155%;
+    background-image: url("/image/Background.phone.jpg"); /* Background image */
+    background-size: fill;
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-color: rgb(19, 144, 138);
+    color: rgb(255, 255, 255);
     padding: 20px;
 }
 
 /* Header styling */
 header {
     width: 100%;
+    height: 10vh;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items:center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.317); /* Semi-transparent white */
+    border-radius: 5px;
 }
 
 .logo img {
-    max-width: 150px; /* Adjust as per logo size */
+    max-width: 80px; /* Adjust as per logo size */
+    height: auto;
+    margin-right: 10px;
+    border-radius: 60px;
+    box-shadow: rgba(0, 0, 0, 0.813) 0px 0px 10px;
 }
 
 /* Buttons */
@@ -55,7 +66,8 @@ header {
 
 .btn:hover {
     background-color: white;
-    color: #007bff; /* Blue theme */
+    color: lightseagreen; /* Blue theme */
+    box-shadow: rgba(0, 0, 0, 0.544) 0px 0px 10px;
 }
 
 .register {
@@ -78,16 +90,28 @@ header {
     text-transform: uppercase;
     line-height: 1.2;
     color: white;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.568);
 }
 
+/* Slogan */
 .slogan {
     font-size: 1.5rem;
     font-weight: 300;
     margin-top: 10px;
     color: white;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.456);
 }
+
+/* Slogan.2 
+.slogan-2 {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 200;
+    margin-top: 10px;
+    color: rgba(232, 13, 13, 0.9);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.456);
+    text-align: left;
+} */ 
 
 /* Get Started Button */
 .get-started {
@@ -104,13 +128,15 @@ header {
 
 .get-started:hover {
     background-color: white;
-    color: #007bff; /* Blue theme */
+    color: lightseagreen; /* Blue theme */
+    box-shadow: rgba(0, 0, 0, 0.537) 0px 0px 10px;
 }
 
 /* Responsive styling */
 @media (max-width: 768px) {
     .site-name {
         font-size: 3rem;
+        
     }
 
     .slogan {
@@ -119,6 +145,7 @@ header {
 
     .logo img {
         max-width: 100px;
+        margin-right: 5px;
     }
 
     .btn {
