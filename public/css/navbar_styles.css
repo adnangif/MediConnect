@@ -1,0 +1,60 @@
+.main-logo {
+    height: 50px;
+    width: 50px;
+    justify-self: start;
+}
+
+.side-logo {
+    color: var(--bg-primary);
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+.grow {
+    flex-grow: 1;
+}
+
+.w-full{
+    width: 100%;
+}
+
+.justify-end{
+    justify-content: end;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: start;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    background-color: var(--bg-primary);
+    color: var(--bg-secondary);
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    font-weight: 500;
+    font-size: 0.75rem;
+    z-index: 1;
+}

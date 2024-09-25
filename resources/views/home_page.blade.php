@@ -15,15 +15,7 @@
 </head>
 
 <body>
-    <div class="navbar items-center">
-        <div class="flex items-center grow">
-            <img class="main-logo" src="/image/logo.svg" />
-            <span class="side-logo">MediConnect</span>
-        </div>
-        <div class="nav-item btn">Login</div>
-        <div class="nav-item btn">Sign Up</div>
-        <div class="nav-item btn">FAQ</div>
-    </div>
+    <x-navbar />
     <div class="main-container">
         <div class="flex">
             <div class="text-container">
