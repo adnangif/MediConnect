@@ -32,7 +32,7 @@ Route::get("/prescription-details/", function () {
 });
 
 Route::get('/prescription-write/', function () {
-    return view('prescription-write');
+    return view('prescription_write');
 });
 
 Route::get('/search/', function () {
