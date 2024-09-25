@@ -33,6 +33,7 @@
             <!-- Join Conference -->
             <form class="conference-form" action="#" method="post">
                 <div class="form-group">
+                <p>or,</p >
                     <label for="meeting-id">Enter Meeting ID</label>
                     <input type="text" id="meeting-id" name="meeting-id" required placeholder="Meeting ID">
                 </div>

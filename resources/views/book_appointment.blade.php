@@ -47,7 +47,7 @@
 
                 <div class="form-group">
                     <label for="message">Reason for Appointment</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Briefly describe the reason for your visit"></textarea>
+                    <textarea id="message" name="message" rows="4" placeholder="Briefly describe the reason for your visit."></textarea>
                 </div>
 
                 <button type="submit" class="btn book-appointment">Book Appointment</button>

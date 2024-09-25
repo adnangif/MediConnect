@@ -122,9 +122,9 @@ header {
     width: 100%;
     padding: 15px;
     font-size: 16px;
-    border: 2px solid lightseagreen;
-    background-color: transparent;
-    color: lightseagreen;
+    border: 2px solid white;
+    background-color: lightseagreen;
+    color: white;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 30px;
@@ -133,8 +133,9 @@ header {
 }
 
 .book-appointment:hover {
-    background-color: lightseagreen;
-    color: white; /* Blue theme */
+    background-color: white;
+    color: lightseagreen; 
+    border-color: lightseagreen;
     /* box-shadow: rgba(0, 0, 0, 0.452) 0px 0px 10px; */
 }
 

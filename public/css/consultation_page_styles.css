@@ -2,13 +2,13 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: auto;
 }
 
 /* Body and container styles */
 body, html {
     height: 100%;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -17,7 +17,7 @@ body, html {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    background-image: url('/image/Background.LightBlue.jpg'); /* Background image */
+    /* background-image: url('/image/Background.LightBlue.jpg'); Background image */
     background-size: cover;
     background-position: center;
     color: white;
@@ -30,10 +30,15 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: lightseagreen;
+    height: 10vh;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 .logo img {
     max-width: 150px; /* Adjust as per logo size */
+    color: white;
 }
 
 /* Buttons */
@@ -54,83 +59,97 @@ header {
 }
 
 .btn:hover {
-    background-color: white;
-    color: #007bff; /* Blue theme */
+    background-color:white;
+    color: lightseagreen; 
 }
 
 /* Conference container */
 .conference-container {
-    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent box for video conference section */
-    padding: 30px;
+    background-color: #f3f4f6; /* Semi-transparent box for video conference section */
+    padding: 20px;
     border-radius: 10px;
-    max-width: 600px;
+    max-width: 700px;
     width: 100%;
+    height: 100%;
     margin-top: 50px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: 50px;
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); */
     text-align: center;
 }
 
 .form-title {
-    font-size: 2rem;
+    font-size: 30px;
     margin-bottom: 20px;
-    color: white;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    color: black;
+    /* text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); */
 }
 
 .conference-description {
-    font-size: 1.2rem;
+    font-size: 20px;
     font-weight: 300;
+    text-decoration: underline;
     margin-bottom: 30px;
-    color: white;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+    color: lightseagreen;
+    /* text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4); */
 }
 
 /* Form styling */
 .form-group {
     margin-bottom: 20px;
+    color: black;
+    font-size: 20px;
 }
 
 .conference-form input {
-    width: 100%;
+    margin-top: 20px;
+    width: 80%;
     padding: 10px;
     border-radius: 5px;
-    border: 2px solid #fff;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-    font-size: 1rem;
+    /* border: 2px solid #fff; */
+    background-color:white;
+    color: black;
+    font-size: 16px;
     outline: none;
     transition: border-color 0.3s ease;
 }
 
 .conference-form input:focus {
-    border-color: #007bff; /* Blue theme focus */
+    border-color: white;
 }
 
 /* Start Conference Button */
 .start-conference {
+    margin-top: 20px;
+    margin-bottom: 20px;
     padding: 15px 40px;
-    font-size: 18px;
-    border: 2px solid white;
-    background-color: transparent;
-    color: white;
+    font-size: 16px;
+    /* border: 2px solid white; */
+    background-color: white;
+    color: lightseagreen;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     border-radius: 30px;
+    border-color: lightseagreen;
     text-transform: uppercase;
 }
 
 .start-conference:hover {
     background-color: white;
-    color: #007bff; /* Blue theme */
+    color: lightseagreen; 
+    /* border: lightseagreen; */
+    text-decoration: underline;
+    box-shadow: rgba(0, 0, 0, 0.166) 0px 0px 10px;
 }
 
 /* Join Conference Button */
 .join-conference {
-    padding: 15px;
-    width: 100%;
-    font-size: 18px;
-    border: 2px solid white;
-    background-color: transparent;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 15px 40px;
+    /* width: 100%; */
+    font-size: 16px;
+    /* border: 2px solid white; */
+    background-color: lightseagreen;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -140,7 +159,9 @@ header {
 
 .join-conference:hover {
     background-color: white;
-    color: #007bff; /* Blue theme */
+    color: lightseagreen;
+    border-color: lightseagreen;
+    /* box-shadow: rgba(0, 0, 0, 0.381) 0px 0px 10px; */
 }
 
 /* Responsive styling */
