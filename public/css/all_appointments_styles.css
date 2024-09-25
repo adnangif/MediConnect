@@ -2,13 +2,13 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+   box-sizing: auto;
 }
 
 /* Body and container styles */
 body, html {
     height: 100%;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -62,7 +62,7 @@ header {
 
 /* Appointments container */
 .appointments-container {
-    background-color: white;
+    background-color: #f3f4f6;
     padding: 30px;
     border-radius: 10px;
     max-width: 800px;
@@ -73,10 +73,10 @@ header {
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 30px;
     margin-bottom: 30px;
-    color: lightseagreen;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.93);
+    /* color: lightseagreen; */
+    /*text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.93);*/
 }
 
 /* Appointment list */
@@ -87,7 +87,7 @@ header {
 }
 
 .appointment-card {
-    background-color: #f3f4f6;
+    background-color: white;
     border: 2px solid white;
     padding: 20px;
     border-radius: 10px;
@@ -95,7 +95,7 @@ header {
 }
 
 .appointment-details p {
-    font-size: 1.2rem;
+    font-size: 20px;
     margin: 5px 0;
 }
 
@@ -107,25 +107,25 @@ header {
     border-width: 5px;
     border-color: white;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .status.pending {
     background-color: orange;
     color: white;
-    box-shadow: rgba(0, 0, 0, 0.611) 0px 0px 10px;
+    /*box-shadow: rgba(0, 0, 0, 0.611) 0px 0px 10px;*/
 }
 
 .status.completed {
     background-color: #28a745;
     color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.729) 0px 0px 10px;
+    /*box-shadow: rgba(0, 0, 0, 0.729) 0px 0px 10px;*/
 }
 
 .status.canceled {
     background-color: #dc3545;
     color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.722) 0px 0px 10px;
+    /*box-shadow: rgba(0, 0, 0, 0.722) 0px 0px 10px;*/
 }
 
 /* Responsive styling */
