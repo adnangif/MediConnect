@@ -1,0 +1,169 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and container styles */
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    background-image: url('/image/Background.LightBlue.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 150px; /* Adjust as per logo size */
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #007bff; /* Blue theme */
+}
+
+/* Conference container */
+.conference-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent box for video conference section */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+    margin-top: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.form-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.conference-description {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Form styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.conference-form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.conference-form input:focus {
+    border-color: #007bff; /* Blue theme focus */
+}
+
+/* Start Conference Button */
+.start-conference {
+    padding: 15px 40px;
+    font-size: 18px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 30px;
+    text-transform: uppercase;
+}
+
+.start-conference:hover {
+    background-color: white;
+    color: #007bff; /* Blue theme */
+}
+
+/* Join Conference Button */
+.join-conference {
+    padding: 15px;
+    width: 100%;
+    font-size: 18px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 30px;
+    text-transform: uppercase;
+}
+
+.join-conference:hover {
+    background-color: white;
+    color: #007bff; /* Blue theme */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .conference-container {
+        padding: 20px;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+    }
+
+    .conference-description {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .start-conference, .join-conference {
+        font-size: 16px;
+        padding: 10px 30px;
+    }
+}

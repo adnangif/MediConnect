@@ -1,0 +1,132 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and container styles */
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    background-color: #f0f8ff; /* Light bluish theme */
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 150px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #007bff;
+}
+
+/* Appointments container */
+.appointments-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+    margin-top: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #007bff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Appointment list */
+.appointment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.appointment-card {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid #007bff;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.appointment-details p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+/* Appointment status styling */
+.status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+
+.status.pending {
+    background-color: #ffcc00;
+    color: #333;
+}
+
+.status.completed {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.status.canceled {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .appointment-card {
+        padding: 15px;
+    }
+
+    .appointment-details p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}

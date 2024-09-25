@@ -1,0 +1,154 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and container styles */
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    background-image: url('/image/Background.LightBlue.jpg'); /* Background image */
+    background-size: fill;
+    background-position: contain;
+    background-repeat: auto;
+    color: white;
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 150px; /* Adjust as per logo size */
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: white;
+    color: #007bff; /* Blue theme */
+}
+
+/* Form container */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent box for form */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+    margin-top: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.form-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Form styling */
+.appointment-form .form-group {
+    margin-bottom: 20px;
+}
+
+.appointment-form label {
+    font-size: 1.2rem;
+    color: white;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.appointment-form input,
+.appointment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.appointment-form input:focus,
+.appointment-form textarea:focus {
+    border-color: #007bff; /* Blue theme focus */
+}
+
+.appointment-form textarea {
+    resize: none;
+}
+
+/* Book Appointment Button */
+.book-appointment {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid lightseagreen;
+    background-color: transparent;
+    color: lightseagreen;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 30px;
+    text-transform: uppercase;
+}
+
+.book-appointment:hover {
+    background-color: lightseagreen;
+    color: white; /* Blue theme */
+    box-shadow: black 0px 0px 10px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    .form-title {
+        font-size: 1.5rem;
+    }
+
+    .appointment-form label {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}

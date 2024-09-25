@@ -1,0 +1,126 @@
+/* Reset some basic styles */
+* {
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Body and container styles */
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    text-align: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    background-color: rgb(255, 255, 255); /* Light bluish theme */
+    padding: 20px;
+}
+
+/* Header styling */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightseagreen;
+   /* height: 10vh;*/
+    /*padding: 50px;*/
+    border-radius: 5px;
+}
+
+.logo img {
+    max-width: 150px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: white;
+    color: lightseagreen;
+    box-shadow: rgba(0, 0, 0, 0.636) 0px 0px 10px;
+}
+
+/* Prescription container */
+.prescription-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    width: 100%;
+    margin-top: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    text-align: left;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #007bff;
+    text-align: center;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* Details section */
+.details-section {
+    margin-bottom: 30px;
+}
+
+.details-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.details-section p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+/* Medication list */
+ul {
+    list-style-type: none;
+}
+
+ul li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .prescription-container {
+        padding: 20px;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .details-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .details-section p {
+        font-size: 1rem;
+    }
+}
