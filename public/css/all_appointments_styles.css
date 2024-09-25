@@ -37,6 +37,7 @@ header {
 
 .logo img {
     max-width: 150px;
+    color: white;
 }
 
 .buttons {
@@ -57,7 +58,7 @@ header {
 
 .btn:hover {
     background-color: white;
-    color: #007bff;
+    color: lightseagreen;
 }
 
 /* Appointments container */

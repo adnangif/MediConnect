@@ -109,7 +109,7 @@ header {
 
 .appointment-form input:focus,
 .appointment-form textarea:focus {
-    border-color: #007bff; /* Blue theme focus */
+    border-color: white; /* Blue theme focus */
 }
 
 .appointment-form textarea {

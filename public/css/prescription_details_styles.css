@@ -1,14 +1,14 @@
 /* Reset some basic styles */
 * {
     margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
+    padding: 0;
+    box-sizing: auto;
 }
 
 /* Body and container styles */
 body, html {
     height: 100%;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-align: auto;
 }
 
@@ -29,13 +29,14 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: lightseagreen;
-   /* height: 10vh;*/
-    /*padding: 50px;*/
+    height: 10vh;
+    padding: 10px;
     border-radius: 5px;
 }
 
 .logo img {
     max-width: 150px;
+    color: white;
 }
 
 .buttons {
@@ -57,27 +58,27 @@ header {
 .btn:hover {
     background-color: white;
     color: lightseagreen;
-    box-shadow: rgba(0, 0, 0, 0.636) 0px 0px 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.636) 0px 0px 10px; */
 }
 
 /* Prescription container */
 .prescription-container {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #f3f4f6; /* Semi-transparent box for form */
     padding: 30px;
     border-radius: 10px;
     max-width: 800px;
     width: 100%;
     margin-top: 50px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); */
     text-align: left;
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 30px;
     margin-bottom: 30px;
-    color: #007bff;
+    /* color: #007bff; */
     text-align: center;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+    /* text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4); */
 }
 
 /* Details section */
@@ -86,13 +87,13 @@ header {
 }
 
 .details-section h3 {
-    font-size: 1.5rem;
+    font-size: 20px;
     margin-bottom: 10px;
-    color: #007bff;
+    color: lightseagreen;
 }
 
 .details-section p {
-    font-size: 1.2rem;
+    font-size: 16px;
     margin: 5px 0;
 }
 
@@ -102,7 +103,7 @@ ul {
 }
 
 ul li {
-    font-size: 1.2rem;
+    font-size: 16px;
     margin-bottom: 10px;
 }
 
@@ -117,10 +118,10 @@ ul li {
     }
 
     .details-section h3 {
-        font-size: 1.2rem;
+        font-size: 20px;
     }
 
     .details-section p {
-        font-size: 1rem;
+        font-size: 16px;
     }
 }
