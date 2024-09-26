@@ -1,16 +1,4 @@
-/* Reset some basic styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: auto;
-}
 
-/* Body and container styles */
-body, html {
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-    text-align: auto;
-}
 
 .container {
     display: flex;
@@ -22,44 +10,11 @@ body, html {
     padding: 20px;
 }
 
-/* Header styling */
-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: lightseagreen;
-    height: 10vh;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.logo img {
-    max-width: 150px;
-    color: white;
-}
-
 .buttons {
     display: flex;
     gap: 20px;
 }
 
-.btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px solid white;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: white;
-    color: lightseagreen;
-    /* box-shadow: rgba(0, 0, 0, 0.636) 0px 0px 10px; */
-}
 
 /* Prescription container */
 .prescription-container {
@@ -89,7 +44,7 @@ header {
 .details-section h3 {
     font-size: 20px;
     margin-bottom: 10px;
-    color: lightseagreen;
+    color: var(--bg-primary);
 }
 
 .details-section p {
@@ -105,23 +60,4 @@ ul {
 ul li {
     font-size: 16px;
     margin-bottom: 10px;
-}
-
-/* Responsive styling */
-@media (max-width: 768px) {
-    .prescription-container {
-        padding: 20px;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-
-    .details-section h3 {
-        font-size: 20px;
-    }
-
-    .details-section p {
-        font-size: 16px;
-    }
 }

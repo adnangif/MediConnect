@@ -55,7 +55,3 @@ Route::get('/doctor/profile/', [doctor_profile::class, 'index']);
 Route::get('/user/profile/', function () {
     return view('user_profile');
 });
-
-Route::get('/landing/page/', function () {
-    return view('landing_page');
-});

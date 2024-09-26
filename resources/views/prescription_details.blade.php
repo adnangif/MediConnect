@@ -6,19 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Prescription Details - MediConnect</title>
     <link rel="stylesheet" href='/css/prescription_details_styles.css'>
+    <link rel="stylesheet" href={{asset('css/global_styles.css')}}>
+    @vite('resources/css/app.css')
 </head>
 <body>
+    <x-navbar />
     <div class="container">
-        <!-- Header section -->
-        <header>
-            <div class="logo">
-                <img src="logo.png" alt="MediConnect Logo">
-            </div>
-            <div class="buttons">
-                <button class="btn register">Register</button>
-                <button class="btn sign-in">Sign In</button>
-            </div>
-        </header>
 
         <!-- Prescription Details Section -->
         <div class="prescription-container">
