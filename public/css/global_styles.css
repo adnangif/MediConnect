@@ -9,7 +9,9 @@
     --bg-navbar: rgba(255, 255, 255, 0.7);
 }
 
-
+a{
+    text-decoration: none;
+}
 
 .main-logo {
     height: 50px;

@@ -3,7 +3,13 @@
         <img class="main-logo" src={{asset("image/logo.svg")}} />
         <span class="side-logo">MediConnect</span>
     </div>
-    <div class="btn">Login</div>
-    <div class="btn">Sign Up</div>
-    <div class="btn">FAQ</div>
+    <div>
+        <a href="#" class="btn">Login</a>
+    </div>
+    <div>
+        <a href="#" class="btn">Sign Up</a>
+    </div>
+    <div>
+        <a href="#" class="btn">FAQ</a>
+    </div>
 </div>

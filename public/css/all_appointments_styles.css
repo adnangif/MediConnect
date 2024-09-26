@@ -1,16 +1,3 @@
-/* Reset some basic styles */
-* {
-    margin: 0;
-    padding: 0;
-   box-sizing: auto;
-}
-
-/* Body and container styles */
-body, html {
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
-}
-
 .container {
     display: flex;
     flex-direction: column;
@@ -21,45 +8,12 @@ body, html {
     padding: 20px;
 }
 
-/* Header styling */
-header {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    height: 10vh;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color:lightseagreen;
-    padding: 10px;
-}
-
-.logo img {
-    max-width: 150px;
-    color: white;
-}
-
 .buttons {
     display: flex;
     gap: 20px;
 }
 
-.btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: rgba(255, 255, 255, 0.162);
-    border: 2px solid white;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
 
-.btn:hover {
-    background-color: white;
-    color: lightseagreen;
-}
 
 /* Appointments container */
 .appointments-container {
@@ -127,19 +81,4 @@ header {
     background-color: #dc3545;
     color: #fff;
     /*box-shadow: rgba(0, 0, 0, 0.722) 0px 0px 10px;*/
-}
-
-/* Responsive styling */
-@media (max-width: 768px) {
-    .appointment-card {
-        padding: 15px;
-    }
-
-    .appointment-details p {
-        font-size: 1rem;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
 }
