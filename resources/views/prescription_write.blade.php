@@ -17,17 +17,17 @@
         </div>
         <div class="flex w-full">
             <div class="grow">Medicine 1</div>
-            <textarea rows="4" class="grow"></textarea>
+            <textarea rows="6" class="grow resize-none rounded-md"></textarea>
         </div>
 
         <div class="flex w-full">
             <div class="grow">Medicine 1</div>
-            <textarea rows="4" class="grow"></textarea>
+            <textarea rows="6" class="grow resize-none rounded-md"></textarea>
         </div>
 
         <div class="flex w-full">
             <div class="grow">Medicine 1</div>
-            <textarea rows="4" class="grow"></textarea>
+            <textarea rows="6" class="grow resize-none rounded-md"></textarea>
         </div>
         
         <div class="flex justify-end">
@@ -36,12 +36,12 @@
 
         <div class="flex w-full">
             <div class="grow">Test 1</div>
-            <textarea rows="4" class="grow"></textarea>
+            <textarea rows="6" class="grow resize-none rounded-md"></textarea>
         </div>
 
         <div class="flex w-full">
             <div class="grow">Test 2</div>
-            <textarea rows="4" class="grow"></textarea>
+            <textarea rows="6" class="grow resize-none rounded-md"></textarea>
         </div>
 
         <div class="flex justify-end">
