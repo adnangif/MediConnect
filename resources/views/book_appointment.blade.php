@@ -6,34 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Book Appointment - MediConnect</title>
     <link rel="stylesheet" href='/css/book_appointment_styles.css'>
+    <link rel="stylesheet" href={{asset('css/global_styles.css')}} >
+    @vite('resources/css/app.css')
 </head>
 <body>
+    <x-navbar />
     <div class="container">
-        <!-- Header section -->
-        <header>
-            <div class="logo">
-                <img src="logo.png" alt="MediConnect Logo">
-            </div>
-            <div class="buttons">
-                <button class="btn register">Register</button>
-                <button class="btn sign-in">Sign In</button>
-            </div>
-        </header>
-
-        <!-- Book Appointment Form -->
         <div class="form-container">
-            <h2 class="form-title">Book an Appointment</h2>
+            <h2 class="text-[30px] pb-8">Book an Appointment</h2>
 
             <form class="appointment-form" action="#" method="post">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="Enter your email">
-                </div>
 
                 <div class="form-group">
                     <label for="date">Preferred Date</label>
@@ -49,8 +31,10 @@
                     <label for="message">Reason for Appointment</label>
                     <textarea id="message" name="message" rows="4" placeholder="Briefly describe the reason for your visit."></textarea>
                 </div>
+                <div class="flex justify-end">
+                <button type="submit" class="btn">Book Appointment</button>
 
-                <button type="submit" class="btn book-appointment">Book Appointment</button>
+                </div>
             </form>
         </div>
     </div>
