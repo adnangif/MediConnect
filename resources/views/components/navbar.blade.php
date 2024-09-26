@@ -1,6 +1,6 @@
 <div class="navbar items-center">
     <div class="flex items-center grow">
-        <img class="main-logo" src="/image/logo.svg" />
+        <img class="main-logo" src={{asset("image/logo.svg")}} />
         <span class="side-logo">MediConnect</span>
     </div>
     <div class="btn">Login</div>

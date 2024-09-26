@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Write Prescription</title>
-    <link rel="stylesheet" href="/css/navbar_styles.css" />
+    <link rel="stylesheet" href={{asset('css/global_styles.css')}} />
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -29,7 +29,7 @@
             <div class="grow">Medicine 1</div>
             <textarea rows="6" class="grow resize-none rounded-md"></textarea>
         </div>
-        
+
         <div class="flex justify-end">
             <button class="btn"> + ADD another Medicine</button>
         </div>
