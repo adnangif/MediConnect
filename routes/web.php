@@ -19,8 +19,8 @@ Route::get('/consultation/', function () {
     return view('consultation_page');
 });
 
-Route::get('/doctor/login/', function () {
-    return view('doctor_login');
+Route::get('/login/', function () {
+    return view('login');
 });
 
 Route::get('/doctor/register/', function () {
