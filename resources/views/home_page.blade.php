@@ -12,6 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body>
@@ -30,7 +31,8 @@
                     <a href="#get-started" class='btn'>Get Started</a>
                 </div>
             </div>
-            <img class="responsive-img" src="/image/3_doctors_img.png" />
+            <lottie-player src="/lottie/doctor-healthcare-app.json" style="height: 600px" background="transparent" speed="1" loop
+                autoplay></lottie-player>
         </div>
 
         <div class="section">
@@ -42,11 +44,13 @@
                     waiting in long lines at clinics. Whether it's a routine check-up or urgent care, MediConnect
                     ensures healthcare is always within reach.
                 </p>
-                <img width="300" src="/image/easy-health-care.png" />
+                <lottie-player src="/lottie/healthcare.json" style="height: 200px" background="transparent" speed="1" loop
+                autoplay></lottie-player>
 
             </div>
             <div class="flex justify-center  gap-4 bg-white p-4 rounded">
-                <img width="300" src="/image/timely-health-care.png" />
+                <lottie-player src="/lottie/heart-research.json" style="height: 200px" background="transparent" speed="1" loop
+                autoplay></lottie-player>
                 <p class="text-secondary">
                     Time is critical when it comes to your health, and MediConnect ensures you receive quick, reliable
                     medical advice. Our platform allows you to book same-day appointments, providing you with timely
@@ -85,7 +89,7 @@
 
             </div>
 
-            
+
 
         </div>
 
