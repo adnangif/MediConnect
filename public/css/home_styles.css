@@ -196,25 +196,6 @@ body {
     z-index: 1;
 }
 
-.btn::before {
-    position: absolute;
-    content: "";
-    height: 100%;
-    width: 100%;
-    background-color: var(--bg-primary);
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    border-radius: 0.5rem;
-    transition: all 300ms cubic-bezier(.67, .89, .7, 1.67);
-    z-index: -1;
-}
-
-.btn:hover::before {
-    height: 130%;
-    width: 110%;
-}
-
 
 .section {
     background-color: var(--bg-secondary);

@@ -65,7 +65,7 @@ a{
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     border-radius: 0.5rem;
-    transition: all 300ms cubic-bezier(.67, .89, .7, 1.67);
+    transition: all 200ms cubic-bezier(.67, .89, .7, 1.67);
     z-index: -1;
 }
 

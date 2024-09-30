@@ -4,12 +4,12 @@
         <span class="side-logo">MediConnect</span>
     </div>
     <div>
-        <a href="#" class="btn">Login</a>
+        <a href="/login" class="btn">Login</a>
     </div>
     <div>
-        <a href="#" class="btn">Sign Up</a>
+        <a href="/signup" class="btn">Sign Up</a>
     </div>
     <div>
-        <a href="#" class="btn">FAQ</a>
+        <a href="/faq" class="btn">FAQ</a>
     </div>
 </div>

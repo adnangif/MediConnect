@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\doctor_profile;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('home_page');
@@ -19,9 +20,8 @@ Route::get('/consultation/', function () {
     return view('consultation_page');
 });
 
-Route::get('/login/', function () {
-    return view('login');
-});
+Route::get('/login', [UserController::class, 'showLoginForm']);
+Route::post('/login', [UserController::class, 'login']);
 
 Route::get('/doctor/register/', function () {
     return view('doctor_register');
