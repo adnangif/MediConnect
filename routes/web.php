@@ -55,3 +55,24 @@ Route::get('/doctor/profile/', [doctor_profile::class, 'index']);
 Route::get('/user/profile/', function () {
     return view('user_profile');
 });
+
+
+Route::get('/admin/doctor-details/', function(){
+    return view('doctor_details');
+});
+
+Route::get('/admin/approve-doctor/', function(){
+    return view('approve_doctor');
+});
+
+Route::get('/admin/doctor-reviews/', function(){
+    return view('doctor_reviews');
+});
+
+Route::get('/admin/all-doctors/', function(){
+    return view('all_doctors');
+});
+
+Route::get('/admin/login/', function(){
+    return view('admin_login');
+});

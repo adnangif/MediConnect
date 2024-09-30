@@ -1,0 +1,1 @@
+<h1>This is doctor details for admin</h1>
