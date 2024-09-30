@@ -31,8 +31,8 @@
                     <a href="#get-started" class='btn'>Get Started</a>
                 </div>
             </div>
-            <lottie-player src="/lottie/doctor-healthcare-app.json" style="height: 600px" background="transparent" speed="1" loop
-                autoplay></lottie-player>
+            <lottie-player src="/lottie/doctor-healthcare-app.json" style="height: 600px" background="transparent"
+                speed="1" loop autoplay></lottie-player>
         </div>
 
         <div class="section">
@@ -44,13 +44,11 @@
                     waiting in long lines at clinics. Whether it's a routine check-up or urgent care, MediConnect
                     ensures healthcare is always within reach.
                 </p>
-                <lottie-player src="/lottie/healthcare.json" style="height: 200px" background="transparent" speed="1" loop
-                autoplay></lottie-player>
+                <img width="250" src="/image/easy-health-care.png" />
 
             </div>
             <div class="flex justify-center  gap-4 bg-white p-4 rounded">
-                <lottie-player src="/lottie/heart-research.json" style="height: 200px" background="transparent" speed="1" loop
-                autoplay></lottie-player>
+                <img width="300" src="/image/timely-health-care.png" />
                 <p class="text-secondary">
                     Time is critical when it comes to your health, and MediConnect ensures you receive quick, reliable
                     medical advice. Our platform allows you to book same-day appointments, providing you with timely
@@ -65,7 +63,7 @@
                     protect your medical information and ensure that your consultations remain confidential. You can
                     trust that your personal health data is safe, giving you peace of mind during every interaction.
                 </p>
-                <img width="300" src="/image/privacy-health-care.png" />
+                <img width="250" src="/image/privacy-health-care.png" />
 
             </div>
             <div class="flex justify-center  gap-4 bg-white p-4 rounded">
@@ -85,7 +83,7 @@
                     without the need for any technical knowledge. We make healthcare accessible to everyone, offering a
                     seamless and stress-free experience.
                 </p>
-                <img width="300" src="/image/ease-of-use.png" />
+                <img width="250" src="/image/ease-of-use.png" />
 
             </div>
 
@@ -107,7 +105,8 @@
                     <button class='btn'>Register</button>
                 </div>
             </div>
-            <img class="responsive-img" src="/image/as-a-patient.png" />
+            <lottie-player src="/lottie/heart-research.json" style="height: 600px;" background="transparent"
+                speed="1" loop autoplay></lottie-player>
         </div>
 
         <div class="flex">
@@ -117,14 +116,17 @@
                     your medical credentials for verification. Once your qualifications are reviewed and approved, you
                     can complete your profile with your specialties and experience to help patients find you. As a
                     certified doctor, you’ll be able to offer virtual consultations and connect with patients from
-                    anywhere, expanding your practice and providing convenient, quality healthcare. Join MediConnect
-                    today and be part of a trusted network that brings healthcare to the digital age.
+                    anywhere, expanding your practice and providing convenient, quality healthcare.
                 </p>
                 <div class="btn-container">
                     <button class='btn'>Register</button>
                 </div>
             </div>
-            <img class="responsive-img" src="/image/as-a-doctor.png" />
+            <div>
+
+                <lottie-player src="/lottie/healthcare.json" style="height: 500px;width: 500px;margin-top:3rem;"
+                    background="transparent" speed="1" loop autoplay></lottie-player>
+            </div>
         </div>
 
         <div class="section leading-3">
