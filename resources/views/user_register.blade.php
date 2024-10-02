@@ -47,7 +47,7 @@
 
             <div class="form-group">
                 <label for="confirm-password">Confirm Password:</label>
-                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm password" required>
+                <input type="password" id="confirm-password" name="password_confirmation" placeholder="Confirm password" required>
             </div>
 
             <button type="submit" class="submit-button">Register</button>

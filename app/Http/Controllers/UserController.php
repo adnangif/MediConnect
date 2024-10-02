@@ -25,7 +25,7 @@ class UserController extends Controller
     public function userRegister(Request $request){
         $validated = $request.validate([
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|confirmed',
             'name' => 'required|max:100',
             'gender' => 'required|max:10',
         ]);
