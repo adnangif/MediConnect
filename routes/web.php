@@ -22,6 +22,8 @@ Route::get('/consultation/', function () {
 
 Route::get('/login', [UserController::class, 'showLoginForm']);
 Route::post('/login', [UserController::class, 'login']);
+Route::get('/user/register', [UserController::class, 'showRegisterForm']);
+Route::post('/user/register', [UserController::class, 'userRegister']);
 
 Route::get('/doctor/register/', function () {
     return view('doctor_register');
@@ -37,14 +39,6 @@ Route::get('/prescription-write/', function () {
 
 Route::get('/search/', function () {
     return view('search_doctor');
-});
-
-Route::get('/user/login/', function () {
-    return view('user_login');
-});
-
-Route::get('/user/register/', function () {
-    return view('user_register');
 });
 
 
