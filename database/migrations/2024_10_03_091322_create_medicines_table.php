@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('medicines', function (Blueprint $table) {
             $table->foreignId('pres_id')
-                ->references('pres_id')
-                ->on('prescription')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-                $table->string('medicine_name')->primary();
-            $table->timestamps();
+            ->references('pres_id')
+            ->on('prescriptions')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+            $table->string('medicine_name')->primary();
+        $table->timestamps();
         });
     }
 

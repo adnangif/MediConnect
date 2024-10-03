@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appointment', function (Blueprint $table) {
-            $table->id('app_id');
-            $table->foreignId('doctor_id')
-                      ->references('doctor_id')->on('doctor')
+        Schema::create('consultations', function (Blueprint $table) {
+            $table->id('cons_id');
+            $table->foreignId('patient_id')
+                      ->references('patient_id')->on('patients')
                       ->onDelete('cascade')
                       ->onUpdate('cascade');
-            $table->foreignId('patient_id')
-                      ->references('patient_id')->on('patient')
+            $table->foreignId('doctor_id')
+                      ->references('doctor_id')->on('doctors')
                       ->onDelete('cascade')
                       ->onUpdate('cascade');
             $table->timestamps();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appointments');
+        Schema::dropIfExists('consultations');
     }
 };

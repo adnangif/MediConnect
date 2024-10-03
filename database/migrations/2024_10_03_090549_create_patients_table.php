@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('patient', function (Blueprint $table) {
+        Schema::create('patients', function (Blueprint $table) {
             $table->id('patient_id');
-            $table->string('name');
-            $table->string('grnder');
+            $table->foreignId('user_id')
+            ->references('id')->on('users')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+            $table->string('gender');
             $table->string('age');
             $table->string('contact');
             $table->string('address')->nullable();
