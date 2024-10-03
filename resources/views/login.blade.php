@@ -16,7 +16,7 @@
             <button id="patient-btn" onclick="showPatientForm()">Patient</button>
         </div>
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div>
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -27,7 +27,7 @@
 
         <div id="doctor-form">
             <h1>Doctor Login</h1>
-            <form action="/login" method="POST">
+            <form method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="email">Email Address:</label>
@@ -49,7 +49,7 @@
 
         <div id="patient-form" style="display: none;">
             <h1>Patient Login</h1>
-            <form action="/login" method="POST">
+            <form method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="patient-email">Email Address:</label>

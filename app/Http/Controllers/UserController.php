@@ -22,12 +22,20 @@ class UserController extends Controller
         }
     }
 
+    public function showRegisterForm(Request $request){
+        return view('user_register');
+    }
+
     public function userRegister(Request $request){
-        $validated = $request.validate([
+        $validated = $request->validate([
             'email' => 'required|email',
-            'password' => 'required',
+            'password' => 'required|confirmed',
             'name' => 'required|max:100',
             'gender' => 'required|max:10',
+            'age' => 'required|max:150',
+            
         ]);
+
+        dd($validated);
     }
 }
