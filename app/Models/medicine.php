@@ -9,3 +9,5 @@ class Medicine extends Model
 {
     use HasFactory;
 }
+
+

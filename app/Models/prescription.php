@@ -9,3 +9,5 @@ class Prescription extends Model
 {
     use HasFactory;
 }
+
+
