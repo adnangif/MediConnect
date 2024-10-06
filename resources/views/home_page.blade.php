@@ -1,4 +1,8 @@
 <x-layout>
+    <x-slot:styles>
+        <link rel="stylesheet" href="/css/home_styles.css" >
+    </x-slot:styles>
+
     <x-navbar />
     <div class="main-container">
         <div class="flex">
@@ -112,7 +116,7 @@
             </div>
         </div>
 
-        <div class="section leading-3">
+        <div class="section">
             <div class="text-container">
                 <div class="title">Recommended Doctors</div>
             </div>
@@ -187,7 +191,7 @@
 
         </div>
 
-        <div class="bg-secondary grid p-4 gap-4 rounded-md leading-3 font-thin">
+        <div class="bg-secondary grid p-4 gap-4 rounded-md font-thin">
             <div class="">
                 <div class="font-bold text-lg">MediConnect</div>
                 <div class="text-gray-600">At MediConnect, we don’t just provide healthcare consultations, we deliver

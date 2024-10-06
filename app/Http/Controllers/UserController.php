@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,7 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
 
         if(Auth::attempt($credentials)){
-            return "<h1>logged in </h1>";
+            return redirect()->intended('/');
         }else{
             return back()->withErrors(['email' => 'Invalid credentials'])->onlyInput('email');
         }
@@ -33,9 +34,12 @@ class UserController extends Controller
             'name' => 'required|max:100',
             'gender' => 'required|max:10',
             'age' => 'required|max:150',
-            
+
         ]);
 
-        dd($validated);
+        $user = User::create($validated);
+
+        return redirect()->to('/login');
+
     }
 }

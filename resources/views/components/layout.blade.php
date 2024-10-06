@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? "Mediconnect" }}</title>
-    <link rel="stylesheet" href="/css/home_styles.css" />
+    <link rel="stylesheet" href="/css/global_styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,6 +15,8 @@
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
     {{ $styles ?? ''}}
+
+    @vite(['resources/css/app.css'])
 </head>
 
 <body>
