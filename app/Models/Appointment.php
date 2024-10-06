@@ -9,5 +9,7 @@ class Appointment extends Model
 {
     use HasFactory;
 
+
     
+
 }
