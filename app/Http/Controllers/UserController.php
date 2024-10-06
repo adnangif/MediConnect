@@ -15,7 +15,7 @@ class UserController extends Controller
     public function login(Request $request){
         $credentials = $request->only('email', 'password');
 
-        if(Auth::guard('web')->attempt($credentials)){
+        if(Auth::attempt($credentials)){
             return "<h1>logged in </h1>";
         }else{
             return back()->withErrors(['email' => 'Invalid credentials'])->onlyInput('email');
