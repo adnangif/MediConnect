@@ -53,13 +53,13 @@
                 @csrf
                 <div class="form-group">
                     <label for="patient-email">Email Address:</label>
-                    <input type="email" id="patient-email" name="patient-email" placeholder="Enter your email"
+                    <input type="email" id="patient-email" name="email" placeholder="Enter your email"
                         required>
                 </div>
 
                 <div class="form-group">
                     <label for="patient-password">Password:</label>
-                    <input type="password" id="patient-password" name="patient-password"
+                    <input type="password" id="patient-password" name="password"
                         placeholder="Enter your password" required>
                 </div>
 

@@ -9,25 +9,37 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function showLoginForm(Request $request){
+    public function showLoginForm(Request $request)
+    {
+
+        $request->session()->flush();
+        Auth::logout();
         return view('login');
     }
 
-    public function login(Request $request){
-        $credentials = $request->only('email', 'password');
+    public function login(Request $request)
+    {
 
-        if(Auth::attempt($credentials)){
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+
+        if (Auth::attempt($credentials)) {
             return redirect()->intended('/');
-        }else{
+        } else {
             return back()->withErrors(['email' => 'Invalid credentials'])->onlyInput('email');
         }
     }
 
-    public function showRegisterForm(Request $request){
+    public function showRegisterForm(Request $request)
+    {
         return view('user_register');
     }
 
-    public function userRegister(Request $request){
+    public function userRegister(Request $request)
+    {
         $validated = $request->validate([
             'email' => 'required|email',
             'password' => 'required|confirmed',
