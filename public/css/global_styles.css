@@ -83,3 +83,8 @@ a{
     height: 130%;
     width: 110%;
 }
+
+
+.full-column{
+    grid-column: 1/-1;
+}

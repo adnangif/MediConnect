@@ -6,7 +6,7 @@
 
     @if (auth()->check())
         <div>
-            <a href="/login" class="btn">
+            <a href="/logout" class="btn">
                 logout
             </a>
         </div>

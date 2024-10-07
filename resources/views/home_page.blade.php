@@ -120,14 +120,14 @@
             <div class="text-container">
                 <div class="title">Recommended Doctors</div>
             </div>
-            <div class="grid gap-8">
+            <div class="grid grid-cols-3 gap-8">
 
                 <div class="flex flex-col gap-4">
                     <img width="200" src="/image/dummy-person.png" />
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
-                        <div class="font-thin">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase font-thin">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
+                        <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
+                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
                             Surgeon</i>
                     </div>
                     <div class="">
@@ -139,8 +139,8 @@
                     <img width="200" src="/image/dummy-person.png" />
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
-                        <div class="font-thin">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase font-thin">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
+                        <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
+                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
                             Surgeon</i>
                     </div>
                     <div class="">
@@ -152,8 +152,8 @@
                     <img width="200" src="/image/dummy-person.png" />
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
-                        <div class="font-thin">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase font-thin">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
+                        <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
+                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
                             Surgeon</i>
                     </div>
                     <div class="">
@@ -165,8 +165,8 @@
                     <img width="200" src="/image/dummy-person.png" />
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
-                        <div class="font-thin">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase font-thin">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
+                        <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
+                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
                             Surgeon</i>
                     </div>
                     <div class="">
@@ -178,8 +178,8 @@
                     <img width="200" src="/image/dummy-person.png" />
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
-                        <div class="font-thin">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase font-thin">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
+                        <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
+                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
                             Surgeon</i>
                     </div>
                     <div class="">
@@ -191,16 +191,16 @@
 
         </div>
 
-        <div class="bg-secondary grid p-4 gap-4 rounded-md font-thin">
-            <div class="">
+        <div class="bg-secondary grid grid-cols-4 p-4 gap-4 rounded-md font-normal ">
+            <div class="col-span-2">
                 <div class="font-bold text-lg">MediConnect</div>
                 <div class="text-gray-600">At MediConnect, we don’t just provide healthcare consultations, we deliver
                     seamless experiences that make quality care accessible for everyone.
                 </div>
             </div>
 
-            <div class="flex flex-col gap-1">
-                <div class="font-bold">Specialists</div>
+            <div class="flex flex-col col-span-1 gap-1 text-gray-600">
+                <div class="font-bold text-gray-950">Specialists</div>
                 <div>Cardiologist</div>
                 <div>Pediatrician</div>
                 <div>Dermatologist</div>
@@ -209,7 +209,7 @@
                 <div>General Physician</div>
             </div>
 
-            <div class="flex flex-col gap-1">
+            <div class="flex flex-col gap-1 col-span-1">
                 <div class="font-bold text-lg">Contact Us</div>
                 <div class="text-gray-600">Email: info@mediconnect.com</div>
                 <div class="text-gray-600">Phone: +8801771802195</div>
@@ -217,7 +217,7 @@
             </div>
 
             <hr class="full-column" />
-            <div class="flex justify-end w-full full-column">
+            <div class="flex justify-end w-full full-column font-bold text-gray-500">
                 <div>© 2024 MediConnect. All Rights Reserved.</div>
             </div>
         </div>

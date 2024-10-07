@@ -20,10 +20,12 @@ Route::get('/consultation/', function () {
     return view('consultation_page');
 });
 
-Route::get('/login', [UserController::class, 'showLoginForm']);
+Route::get('/login', [UserController::class, 'showLoginForm'])
+            ->name('login');
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/user/register', [UserController::class, 'showRegisterForm']);
 Route::post('/user/register', [UserController::class, 'userRegister']);
+Route::get('/logout', [UserController::class,'logout'])->name('logout');
 
 Route::get('/doctor/register/', function () {
     return view('doctor_register');

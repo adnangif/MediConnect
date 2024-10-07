@@ -5,14 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
 
 class UserController extends Controller
 {
     public function showLoginForm(Request $request)
     {
-
-        $request->session()->flush();
         Auth::logout();
         return view('login');
     }
@@ -52,6 +51,12 @@ class UserController extends Controller
         $user = User::create($validated);
 
         return redirect()->to('/login');
+    }
 
+    public function logout(){
+        Auth::logout();
+        Session::flush();
+
+        return redirect()->to('login');
     }
 }
