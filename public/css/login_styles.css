@@ -71,7 +71,7 @@ button.login-button:hover {
 }
 
 .forgot-password a {
-    color: lightseagreen;
+    color: #059669;
     text-decoration: none;
 }
 
@@ -86,24 +86,5 @@ button.login-button:hover {
     margin-bottom: 20px;
 }
 
-.toggle-buttons button {
-    background-color: #ccc;
-    color: #333;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 5px;
-    width: 100%;
-}
 
-.toggle-buttons button.active {
-    background-color: lightseagreen;
-    color: white;
-}
 
-.toggle-buttons button:hover {
-    background-color:lightseagreen;
-    color: white;
-}
