@@ -1,17 +1,17 @@
 <div class="navbar items-center">
-    <div class="flex items-center grow">
+    <a href="/" class="flex items-center grow">
         <img class="main-logo" src={{ asset('image/logo.svg') }} />
         <span class="side-logo">MediConnect</span>
-    </div>
+    </a>
 
     @if (auth()->check())
         <div>
-            <a href="/logout" class="btn">
+            <a href="/all-appointments" class="btn">
                 Appointments
             </a>
         </div>
         <div>
-            <a href="/logout" class="btn">
+            <a href="/user/profile" class="btn">
                 Profile
             </a>
         </div>
