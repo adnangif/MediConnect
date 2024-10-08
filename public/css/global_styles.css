@@ -80,8 +80,8 @@ a{
 }
 
 .btn:hover::before {
-    height: 130%;
-    width: 110%;
+    height: 120%;
+    width: 105%;
 }
 
 
