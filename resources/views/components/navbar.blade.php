@@ -7,6 +7,16 @@
     @if (auth()->check())
         <div>
             <a href="/logout" class="btn">
+                Appointments
+            </a>
+        </div>
+        <div>
+            <a href="/logout" class="btn">
+                Profile
+            </a>
+        </div>
+        <div>
+            <a href="/logout" class="btn bg-red-800">
                 logout
             </a>
         </div>
@@ -19,8 +29,8 @@
         <div>
             <a href="/signup" class="btn">Sign Up</a>
         </div>
+        <div>
+            <a href="/faq" class="btn">FAQ</a>
+        </div>
     @endif
-    <div>
-        <a href="/faq" class="btn">FAQ</a>
-    </div>
 </div>
