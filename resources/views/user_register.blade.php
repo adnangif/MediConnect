@@ -7,9 +7,9 @@
         <link rel="stylesheet" href='/css/user_register_styles.css'>
     </x-slot:styles>
 
-    <body>
+    <div class="flex justify-center p-8">
         <div class="registration-container">
-            <h1>User Registration Form</h1>
+            <h1 class="text-3xl text-center mb-4">User Registration Form</h1>
             @if ($errors->any())
                 <div>
                     <ul>
@@ -62,7 +62,8 @@
                         placeholder="Confirm password" required>
                 </div>
 
-                <button type="submit" class="submit-button">Register</button>
+                <button type="submit" class="btn w-full">Register</button>
             </form>
         </div>
+    </div>
 </x-layout>
