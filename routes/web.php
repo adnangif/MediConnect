@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\doctor_profile;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -21,11 +22,11 @@ Route::get('/consultation/', function () {
 });
 
 Route::get('/login', [UserController::class, 'showLoginForm'])
-            ->name('login');
+    ->name('login');
 Route::post('/login', [UserController::class, 'login']);
 Route::get('/user/register', [UserController::class, 'showRegisterForm']);
 Route::post('/user/register', [UserController::class, 'userRegister']);
-Route::get('/logout', [UserController::class,'logout'])->name('logout');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::get('/doctor/register/', function () {
     return view('doctor_register');
@@ -39,9 +40,7 @@ Route::get('/prescription-write/', function () {
     return view('prescription_write');
 });
 
-Route::get('/search/', function () {
-    return view('search_doctor');
-});
+Route::get('/search/', SearchController::class);
 
 
 
@@ -53,22 +52,22 @@ Route::get('/user/profile/', function () {
 });
 
 
-Route::get('/admin/doctor-details/', function(){
+Route::get('/admin/doctor-details/', function () {
     return view('doctor_details');
 });
 
-Route::get('/admin/approve-doctor/', function(){
+Route::get('/admin/approve-doctor/', function () {
     return view('approve_doctor');
 });
 
-Route::get('/admin/doctor-reviews/', function(){
+Route::get('/admin/doctor-reviews/', function () {
     return view('doctor_reviews');
 });
 
-Route::get('/admin/all-doctors/', function(){
+Route::get('/admin/all-doctors/', function () {
     return view('all_doctors');
 });
 
-Route::get('/admin/login/', function(){
+Route::get('/admin/login/', function () {
     return view('admin_login');
 });

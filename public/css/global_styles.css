@@ -4,9 +4,11 @@
     box-sizing: border-box;
     font-family: "roboto", sans-serif;
     --color-primary: rgb(2 44 34);
+    --color-secondary: #08604a;
     --bg-primary: rgb(5 150 105);
     --bg-secondary: rgba(243 244 246);
     --bg-navbar: rgba(255, 255, 255, 0.7);
+    --bg-icon-btn: #a7f3d0;
 }
 
 html {
@@ -49,6 +51,40 @@ a{
     z-index: 1;
 }
 
+.icon-btn{
+    height: 40px;
+    transition: all 300ms;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border-radius: 0.5rem;
+    border: solid 1px var(--bg-primary);
+
+    &:hover{
+        background-color: var(--bg-icon-btn);
+    }
+}
+
+.outline-btn{
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    padding: 8px 1.5rem;
+    justify-content: center;
+
+    transition: all 200ms;
+    border: solid 1px var(--bg-icon-btn);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+
+
+
+    &:hover{
+        border: solid 1px var(--bg-primary);
+    }
+}
+
 .navbar {
     display: flex;
     justify-content: end;
@@ -87,4 +123,32 @@ a{
 
 .full-column{
     grid-column: 1/-1;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 0.5rem;
+    outline: none;
+    border: 1px solid rgb(197, 197, 197);
+    background-color: white;
+    height: 3rem;
+
+
+
+    &:focus{
+        border: 1px solid var(--bg-primary);
+
+    }
+}
+
+
+.active{
+    background-color: var(--bg-icon-btn);
 }

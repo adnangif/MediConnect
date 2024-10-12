@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Search</title>
-    <link rel="stylesheet" href='/css/search_doctor_styles.css'>
-</head>
-<body>
+<x-layout>
+
+    <x-slot:styles>
+        <link rel="stylesheet" href='/css/search_doctor_styles.css'>
+    </x-slot:styles>
+
+    <x-navbar />
     <div class="search-container">
-        <h1>Search for Doctors</h1>
+        <h1 class="text-3xl m-5 font-bold">Search for Doctors</h1>
         <form action="#" method="get" id="searchForm">
             <!-- Search by Doctor's Name -->
             <div class="form-group">
-                <input type="text" id="doctor-name" name="doctor-name" placeholder="Enter doctor's name">
+                <input type="text" id="doctor-name" name="doctor-name" placeholder="doctor's name">
             </div>
-            
+
             <!-- Select Specialization -->
             <div class="form-group">
                 <select id="specialization" name="specialization">
@@ -29,12 +27,20 @@
             </div>
 
             <!-- Search Button -->
-            <button type="button" class="search-button" onclick="searchDoctor()">Search</button>
+            <button type="button" class="btn bg-emerald-200 text-gray-900 flex items-center justify-between gap-2" onclick="searchDoctor()">
+                <img src="/image/search.svg" width="20"/>
+                <span>
+                    Search
+                </span>
+            </button>
         </form>
 
         <!-- Search Results Section -->
         <div class="search-results">
-            <h2>Search Results</h2>
+            <div class="flex flex-col items-center justify-center">
+                <img src="/image/search.png" width="250" height="250" />
+                <h2 class="text-gray-400">Click search to get started...</h2>
+            </div>
             <ul id="result-list">
                 <!-- Results will be displayed here -->
             </ul>
@@ -47,20 +53,8 @@
             const specialization = document.getElementById("specialization").value;
             const resultList = document.getElementById("result-list");
 
-            // Clear previous results
-            resultList.innerHTML = '';
 
-            // Placeholder logic to display results
-            if (doctorName || specialization) {
-                let resultItem = document.createElement("li");
-                resultItem.textContent = `Searching for doctor: ${doctorName || 'Any'} with specialization: ${specialization || 'Any'}`;
-                resultList.appendChild(resultItem);
-            } else {
-                let resultItem = document.createElement("li");
-                resultItem.textContent = "Please enter a doctor's name or select a specialization.";
-                resultList.appendChild(resultItem);
-            }
         }
     </script>
-</body>
-</html>
+
+</x-layout>

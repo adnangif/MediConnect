@@ -12,8 +12,8 @@
 
     <div class="login-container">
         <div class="flex gap-6">
-            <button id="doctor-btn" class="active btn grow" onclick="showDoctorForm()">Doctor</button>
-            <button id="patient-btn" class="btn grow" onclick="showPatientForm()">Patient</button>
+            <button id="doctor-btn" class="outline-btn grow active" onclick="showDoctorForm()">Doctor</button>
+            <button id="patient-btn" class="outline-btn grow" onclick="showPatientForm()">Patient</button>
         </div>
         @if ($errors->any())
             <div>

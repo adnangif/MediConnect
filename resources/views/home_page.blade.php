@@ -14,8 +14,9 @@
                     healthcare
                     is just a click away.
                 </p>
-                <div class="btn-container">
+                <div class="btn-container gap-8">
                     <a href="#get-started" class='btn'>Get Started</a>
+                    <a href="/search" class='outline-btn'>search doctor</a>
                 </div>
             </div>
             <lottie-player src="/lottie/doctor-healthcare-app.json" style="height: 600px" background="transparent"
@@ -23,7 +24,8 @@
         </div>
 
         <div class="section">
-            <div class="title">Why Choose MediConnect?</div>
+            <div class="title">Why Choose
+                <span class="text-emerald-600 font-semibold">MediConnect?</span></div>
             <div class="flex justify-center gap-4 bg-white p-4 rounded">
                 <p class="text-secondary">
                     With MediConnect, accessing healthcare has never been easier. You can schedule consultations with

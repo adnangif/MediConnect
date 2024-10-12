@@ -6,20 +6,28 @@
 
     @if (auth()->check())
         <div>
-            <a href="/all-appointments" class="btn">
-                Appointments
+            <a href="/search">
+                <img src="/image/search.svg" class="icon-btn" />
             </a>
         </div>
         <div>
-            <a href="/user/profile" class="btn">
-                Profile
+            <a href="/all-appointments/">
+                <img src="/image/appointment-icon.svg" class="icon-btn" />
             </a>
         </div>
+
         <div>
-            <a href="/logout" class="btn bg-red-800">
-                logout
+            <a href="/user/profile">
+                <img src="/image/profile.svg" class="icon-btn" />
             </a>
         </div>
+
+        <div>
+            <a href="/logout" class="flex items-center">
+                <img src="/image/logout.svg" class="icon-btn hover:bg-red-200" />
+            </a>
+        </div>
+
     @else
         <div>
             <a href="/login" class="btn">
