@@ -9,7 +9,7 @@
 
     <div class="flex justify-center p-8">
         <div class="registration-container">
-            <h1 class="text-3xl text-center mb-4">User Registration Form</h1>
+            <h1 class="text-3xl text-center mb-4">User Registration</h1>
             @if ($errors->any())
                 <div>
                     <ul>
@@ -22,22 +22,22 @@
             <form method="post">
                 @csrf
                 <div class="form-group">
-                    <label for="name">Full Name:</label>
+                    <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" placeholder="Enter full name" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Email Address:</label>
+                    <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" placeholder="Enter email" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="phone">Phone Number:</label>
+                    <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="gender">Gender:</label>
+                    <label for="gender">Gender</label>
                     <select id="gender" name="gender" required>
                         <option value="" disabled selected>Select gender</option>
                         <option value="male">Male</option>
@@ -47,17 +47,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="age">Age:</label>
+                    <label for="age">Age</label>
                     <input type="number" id="age" name="age" placeholder="Enter your age" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password:</label>
+                    <label for="password">Password</label>
                     <input type="password" id="password" name="password" placeholder="Enter password" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="confirm-password">Confirm Password:</label>
+                    <label for="confirm-password">Confirm Password</label>
                     <input type="password" id="confirm-password" name="password_confirmation"
                         placeholder="Confirm password" required>
                 </div>

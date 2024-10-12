@@ -1,10 +1,14 @@
-
+body{
+    background-color: var(--bg-secondary);
+}
 .registration-container {
     padding: 1.5rem;
     border-radius: 10px;
     width: 90%;
     max-width: 500px;
-    background-color: var(--bg-secondary);
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 
 
@@ -29,7 +33,7 @@ select {
     padding: 10px;
     border-radius: 5px;
     outline: none;
-    border: 1px solid var(--bg-secondary);
+    border: 1px solid rgb(197, 197, 197);
     background-color: white;
     height: 2.5rem;
 
