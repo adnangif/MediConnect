@@ -27,7 +27,7 @@
             </div>
 
             <!-- Search Button -->
-            <button type="button" class="btn bg-emerald-200 text-gray-900 flex items-center justify-between gap-2" onclick="searchDoctor()">
+            <button type="button" class="btn bg-emerald-200 text-emerald-800 flex items-center justify-between gap-2" onclick="searchDoctor()">
                 <img src="/image/search.svg" width="20"/>
                 <span>
                     Search
