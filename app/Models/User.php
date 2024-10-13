@@ -47,9 +47,13 @@ class User extends Authenticatable
         ];
     }
 
-    public function details(): HasOne
+    public function patient(): HasOne
     {
         return $this->hasOne(Patient::class);
+    }
+
+    public function doctor(): HasOne{
+        return $this->hasOne(Doctor::class);
     }
 
     public static function createUser(array $validated)
