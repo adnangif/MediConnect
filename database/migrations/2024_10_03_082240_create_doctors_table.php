@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\DoctorSpecializations;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,10 +15,10 @@ return new class extends Migration
         Schema::create('doctors', function (Blueprint $table) {
             $table->id('doctor_id');
             $table->foreignId('user_id')
-            ->references('id')->on('users')
-            ->onDelete('cascade')
-            ->onUpdate('cascade');
-            $table->string('specialist');
+                ->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->enum('specialization', DoctorSpecializations::toArray());
             $table->string('exprence');
             $table->string('contact');
             $table->double('fee');
