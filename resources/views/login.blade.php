@@ -23,7 +23,7 @@
             <button id="user-btn" class="outline-btn grow active" onclick="showuserForm()">user</button>
         </div>
 
-        <div id="doctor-form"  style="display: none;" class="mt-4">
+        <div id="doctor-form" style="display: none;" class="mt-4">
             <h1 class="text-3xl py-4 font-semibold">Doctor Login</h1>
             <form method="POST">
                 @csrf
@@ -74,6 +74,17 @@
                         required>
                 </div>
 
+                <div>
+                    @if ($errors->any())
+                        <div class="p-2 my-2 bg-red-50 text-red-800 rounded-lg">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                </div>
 
                 <button type="submit" class="btn w-full">Login</button>
 

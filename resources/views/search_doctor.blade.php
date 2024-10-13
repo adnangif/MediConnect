@@ -39,7 +39,7 @@
         <div class="search-results">
             <div class="flex flex-col items-center justify-center">
                 <img src="/image/search.png" width="250" height="250" />
-                <h2 class="text-gray-400">Click search to get started...</h2>
+                <h2 class="text-gray-400">Click 'Search' to begin.</h2>
             </div>
             <ul id="result-list">
                 <!-- Results will be displayed here -->
