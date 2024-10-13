@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\UserTypes;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,16 +48,26 @@ class UserController extends Controller
             'age' => 'required|max:150',
 
         ]);
+        $validated['role'] = UserTypes::USER;
 
-        $user = User::create($validated);
+        $user = User::createUser($validated);
 
-        return redirect()->to('/login');
+        return redirect()->to('login');
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         Session::flush();
 
         return redirect()->to('login');
+    }
+
+    public function showUserProfile(Request $request)
+    {
+        $user = Auth::user();
+        return view('user_profile', [
+            'user' => $user,
+        ]);
     }
 }

@@ -27,6 +27,7 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('/user/register', [UserController::class, 'showRegisterForm']);
 Route::post('/user/register', [UserController::class, 'userRegister']);
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::get('/user/profile',[UserController::class, 'showUserProfile']);
 
 Route::get('/doctor/register/', function () {
     return view('doctor_register');
@@ -46,10 +47,6 @@ Route::get('/search/', SearchController::class);
 
 Route::get('/doctor/profile/', [doctor_profile::class, 'index']);
 
-
-Route::get('/user/profile/', function () {
-    return view('user_profile');
-});
 
 
 Route::get('/admin/doctor-details/', function () {
