@@ -5,8 +5,8 @@
     </x-slot:styles>
 
     <x-navbar />
-    <div class="search-container">
-        <h1 class="text-3xl m-5 font-bold">Search for Doctors</h1>
+    <div class="max-w-4xl mx-auto flex flex-col pt-5 gap-6 items-center">
+        <h1 class="text-3xl font-bold">Search for Doctors</h1>
         <form action="#" method="get" id="searchForm">
             <!-- Search by Doctor's Name -->
             <div class="form-group">
@@ -36,14 +36,18 @@
         </form>
 
         <!-- Search Results Section -->
-        <div class="search-results">
-            <div class="flex flex-col items-center justify-center">
+        <div
+        id="search-results"
+        class="items-start w-full max-w-3xl p-4 grid gap-4"
+        hx-get="{{ route('searchResults') }}"
+        hx-trigger='load'
+        hx-swap='innerHTML'
+        >
+            <div class="flex flex-col items-center justify-center h-full">
                 <img src="/image/search.png" width="250" height="250" />
                 <h2 class="text-gray-400">Click 'Search' to begin.</h2>
             </div>
-            <ul id="result-list">
-                <!-- Results will be displayed here -->
-            </ul>
+
         </div>
     </div>
 

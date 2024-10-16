@@ -100,6 +100,7 @@ class User extends Authenticatable
 
             $doctor_info = [
                 'user_id' => $user->id,
+                'name' => $validated['name'],
                 'specialization' => $validated['specialization'],
             ];
             $doctor = Doctor::create($doctor_info);

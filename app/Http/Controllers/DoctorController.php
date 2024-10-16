@@ -24,6 +24,7 @@ class DoctorController extends Controller
             'email' => 'required|email',
             'password' => 'required|confirmed',
             'specialization' => ['required', Rule::in(DoctorSpecializations::toArray())],
+            'name' => 'required',
         ]);
         $validated['role'] = UserTypes::DOCTOR->value;
 

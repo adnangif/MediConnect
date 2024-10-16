@@ -18,6 +18,7 @@ return new class extends Migration
                 ->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
+            $table->string('name');
             $table->enum('specialization', DoctorSpecializations::toArray());
             $table->string('experience')->nullable();
             $table->string('contact')->nullable();

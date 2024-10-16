@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "roboto", sans-serif;
+    font-family: "Afacad Flux", sans-serif;
     --color-primary: rgb(2 44 34);
     --color-secondary: #08604a;
     --bg-primary: rgb(5 150 105);
@@ -13,6 +13,7 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 18px;
 }
 
 html,
