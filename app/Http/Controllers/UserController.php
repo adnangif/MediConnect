@@ -48,7 +48,7 @@ class UserController extends Controller
             'age' => 'required|max:150',
 
         ]);
-        $validated['role'] = UserTypes::USER;
+        $validated['role'] = UserTypes::USER->value;
 
         $user = User::createUser($validated);
 

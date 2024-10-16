@@ -19,11 +19,12 @@ return new class extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
             $table->enum('specialization', DoctorSpecializations::toArray());
-            $table->string('exprence');
-            $table->string('contact');
-            $table->double('fee');
-            $table->string('cur_work');
+            $table->string('experience')->nullable();
+            $table->string('contact')->nullable();
+            $table->double('fee')->nullable();
+            $table->string('cur_work')->nullable();
             $table->timestamps();
+            $table->boolean('is_approved')->default(false);
         });
     }
 

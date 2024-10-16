@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -63,16 +64,45 @@ class User extends Authenticatable
             $user_info = [
                 'email' => $validated['email'],
                 'password' => $validated['password'],
+                'role' => $validated['role'],
             ];
-            $user = parent::create($user_info);
+            $user = User::create($user_info);
 
-            $patiend_info = [
+            $patient_info = [
                 'user_id' => $user->id,
                 'name' => $validated['name'],
                 'age' => $validated['age'],
                 'gender' => $validated['gender'],
             ];
-            $patient = Patient::create($patiend_info);
+            $patient = Patient::create($patient_info);
+
+            DB::commit();
+
+            return $user;
+        } catch (\Exception $e) {
+            DB::rollback();
+
+            throw $e;
+        }
+    }
+
+    public static function createDoctor(array $validated)
+    {
+        try {
+            DB::beginTransaction();
+            $user_info = [
+                'email' => $validated['email'],
+                'password' => $validated['password'],
+                'role' => $validated['role'],
+            ];
+
+            $user = User::create($user_info);
+
+            $doctor_info = [
+                'user_id' => $user->id,
+                'specialization' => $validated['specialization'],
+            ];
+            $doctor = Doctor::create($doctor_info);
 
             DB::commit();
 

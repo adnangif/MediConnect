@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\doctor_profile;
+use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
 
@@ -29,9 +30,10 @@ Route::post('/user/register', [UserController::class, 'userRegister']);
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::get('/user/profile',[UserController::class, 'showUserProfile']);
 
-Route::get('/doctor/register/', function () {
-    return view('doctor_register');
-});
+Route::get('/doctor/register', [DoctorController::class, 'showRegisterForm']);
+Route::post('/doctor/register', [DoctorController::class, 'doctorRegister']);
+
+
 
 Route::get("/prescription-details/", function () {
     return view('prescription_details');
