@@ -52,15 +52,4 @@
 
         </div>
     </div>
-
-    <script>
-        function searchDoctor() {
-            const doctorName = document.getElementById("doctor-name").value;
-            const specialization = document.getElementById("specialization").value;
-            const resultList = document.getElementById("result-list");
-
-
-        }
-    </script>
-
 </x-layout>

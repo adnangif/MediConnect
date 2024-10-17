@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
+use Barryvdh\Debugbar\Facades\Debugbar;
 
 class Doctor extends Model
 {
@@ -30,6 +30,8 @@ class Doctor extends Model
         if($specialization){
             $doctors = $doctors->where('specialization', $specialization);
         }
+
+        Debugbar::info($doctors->get());
 
         return $doctors->get();
     }
