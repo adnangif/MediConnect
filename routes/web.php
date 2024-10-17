@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\doctor_profile;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\EnsureRoleIsUser;
 
 Route::get('/', function () {
     return view('home_page');
@@ -14,9 +16,11 @@ Route::get('/all-appointments/', function () {
     return view('all_appointments');
 });
 
-Route::get('/book-appointment/', function () {
-    return view('book_appointment');
+Route::middleware([EnsureRoleIsUser::class])->group(function () {
+    Route::get('/book-appointment/{doctor}', [AppointmentController::class, 'showAppointmentForm'])
+        ->name('appointment-form');
 });
+
 
 Route::get('/consultation/', function () {
     return view('consultation_page');
@@ -27,7 +31,7 @@ Route::post('/login', [UserController::class, 'login']);
 Route::get('/user/register', [UserController::class, 'showRegisterForm']);
 Route::post('/user/register', [UserController::class, 'userRegister']);
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-Route::get('/user/profile',[UserController::class, 'showUserProfile']);
+Route::get('/user/profile', [UserController::class, 'showUserProfile']);
 
 Route::get('/doctor/register', [DoctorController::class, 'showRegisterForm']);
 Route::post('/doctor/register', [DoctorController::class, 'doctorRegister']);

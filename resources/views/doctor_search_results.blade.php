@@ -15,9 +15,10 @@
                 <div class="text-gray-500">Specializing in Joint Replacement & Sports Injuries</div>
                 <div class="text-gray-500 italic">Contact@gmail.com</div>
             </div>
-            @if (Auth::check() && Auth::user()->isUser() )
+            @if (Auth::check() && Auth::user()->isUser())
                 <div class="flex flex-col justify-end">
-                    <button class="btn">Get an appointment</button>
+                    <a href="{{ route('appointment-form', $doctor->doctor_id) }}" class="btn">Get an
+                        appointment</a>
                 </div>
             @else
                 <div class="flex flex-col justify-end">

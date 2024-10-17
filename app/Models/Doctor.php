@@ -9,7 +9,7 @@ use Barryvdh\Debugbar\Facades\Debugbar;
 class Doctor extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'doctor_id';
     protected $fillable = [
         'user_id',
         'name',

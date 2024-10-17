@@ -5,7 +5,7 @@
     <x-navbar />
     <div class="container">
         <div class="form-container shadow">
-            <h2 class="text-[30px] pb-8 ">Book an Appointment</h2>
+            <h2 class="text-2xl pb-8 ">{{ $doctor->name }}<span class="text-base text-gray-600"> - Create Appointment</span></h2>
 
             <form class="appointment-form" action="#" method="post">
 
@@ -16,10 +16,11 @@
 
                 <div class="form-group">
                     <label for="message">Reason for Appointment</label>
-                    <textarea class="resize-none w-full outline-none p-2" id="message" name="message" rows="4" placeholder="Briefly describe the reason for your visit."></textarea>
+                    <textarea class="resize-none w-full outline-none p-2" id="message" name="message" rows="4"
+                        placeholder="Briefly describe the reason for your Appointment."></textarea>
                 </div>
                 <div class="flex justify-end">
-                    <button type="submit" class="btn">Book Appointment</button>
+                    <button type="submit" class="btn">Confirm</button>
 
                 </div>
             </form>
