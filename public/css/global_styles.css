@@ -134,6 +134,7 @@ input[type="email"],
 input[type="tel"],
 input[type="number"],
 input[type="password"],
+input[type='date'],
 select {
     width: 100%;
     padding: 10px;
@@ -144,6 +145,18 @@ select {
     height: 3rem;
 
 
+
+    &:focus{
+        border: 1px solid var(--bg-primary);
+
+    }
+}
+textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(197, 197, 197);
+    outline: none;
+    border-radius: 0.5rem;
 
     &:focus{
         border: 1px solid var(--bg-primary);
