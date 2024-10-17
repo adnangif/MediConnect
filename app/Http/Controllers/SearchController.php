@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\DoctorSpecializations;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 
@@ -10,15 +11,19 @@ class SearchController extends Controller
 
     public function __invoke(Request $request)
     {
-        return view('search_doctor');
+        return view('search_doctor', [
+            'doctor_specializations' => DoctorSpecializations::toArray(),
+        ]);
     }
 
     public function getSearchResults(Request $request)
     {
-        $query = $request->input('q', 'default');
+        $name = $request->input('name');
+        $specialization = $request->input('specialization');
+        $doctors = Doctor::getDoctorByNameSpecialization($name, $specialization);
 
         return view('doctor_search_results', [
-            'doctors' => Doctor::all(),
+            'doctors' => $doctors,
         ]);
     }
 }
