@@ -14,7 +14,7 @@
         id="searchForm">
             <!-- Search by Doctor's Name -->
             <div class="form-group">
-                <input type="text" id="doctor-name" name="doctor-name" placeholder="doctor's name">
+                <input type="text" id="doctor-name" name="name" placeholder="doctor's name(optional)">
             </div>
 
             <!-- Select Specialization -->

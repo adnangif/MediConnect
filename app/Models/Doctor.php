@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Doctor extends Model
 {
@@ -22,15 +23,14 @@ class Doctor extends Model
 
     public static function getDoctorByNameSpecialization(string|null $name, string|null $specialization)
     {
-        $doctors = Doctor::all();
-        if ($name != null) {
-            $doctors = $doctors->where('name', 'LIKE', "%{$specialization}%");
+        $doctors = Doctor::query();
+        if ($name) {
+            $doctors = $doctors->where('name', 'LIKE', "%{$name}%");
         }
-
-        if ($specialization != null) {
+        if($specialization){
             $doctors = $doctors->where('specialization', $specialization);
         }
 
-        return $doctors;
+        return $doctors->get();
     }
 }

@@ -19,6 +19,9 @@ class SearchController extends Controller
     public function getSearchResults(Request $request)
     {
         $name = $request->input('name');
+        if(trim($name) == ''){
+            $name = null;
+        }
         $specialization = $request->input('specialization');
         $doctors = Doctor::getDoctorByNameSpecialization($name, $specialization);
 
