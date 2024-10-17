@@ -15,9 +15,15 @@
                 <div class="text-gray-500">Specializing in Joint Replacement & Sports Injuries</div>
                 <div class="text-gray-500 italic">Contact@gmail.com</div>
             </div>
-            <div class="flex flex-col justify-end">
-                <button class="btn">Get an appointment</button>
-            </div>
+            @if (Auth::check() && Auth::user()->isUser() )
+                <div class="flex flex-col justify-end">
+                    <button class="btn">Get an appointment</button>
+                </div>
+            @else
+                <div class="flex flex-col justify-end">
+                    <button disabled class="btn bg-gray-400 cursor-not-allowed">Login Required</button>
+                </div>
+            @endif
         </div>
     @endforeach
 @endif

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Enums\UserTypes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -55,6 +57,18 @@ class User extends Authenticatable
 
     public function doctor(): HasOne{
         return $this->hasOne(Doctor::class);
+    }
+
+    public function isUser(){
+        return $this->role == UserTypes::USER->value;
+    }
+
+    public function isDoctor(){
+        return $this->role == UserTypes::DOCTOR->value;
+    }
+
+    public function isAdmin(){
+        return $this->role == UserTypes::ADMIN->value;
     }
 
     public static function createUser(array $validated)
