@@ -19,6 +19,7 @@ Route::get('/all-appointments/', function () {
 Route::middleware([EnsureRoleIsUser::class])->group(function () {
     Route::get('/book-appointment/{doctor}', [AppointmentController::class, 'showAppointmentForm'])
         ->name('appointment-form');
+    Route::post('/book-appointment/{doctor}', [AppointmentController::class, 'handleAppointmentFormSubmit']);
 });
 
 

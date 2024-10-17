@@ -7,8 +7,8 @@
         <div class="form-container shadow">
             <h2 class="text-2xl pb-8 ">{{ $doctor->name }}<span class="text-base text-gray-600"> - Create Appointment</span></h2>
 
-            <form class="appointment-form" action="#" method="post">
-
+            <form class="appointment-form" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="date">Preferred Date</label>
                     <input class="p-2" type="date" id="date" name="date" required>

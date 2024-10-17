@@ -14,13 +14,15 @@ return new class extends Migration
         Schema::create('appointments', function (Blueprint $table) {
             $table->id('app_id');
             $table->foreignId('doctor_id')
-                      ->references('doctor_id')->on('doctors')
-                      ->onDelete('cascade')
-                      ->onUpdate('cascade');
+                ->references('doctor_id')->on('doctors')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->foreignId('patient_id')
-                      ->references('patient_id')->on('patients')
-                      ->onDelete('cascade')
-                      ->onUpdate('cascade');
+                ->references('patient_id')->on('patients')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->text('message');
+            $table->date('date');
             $table->timestamps();
         });
     }
