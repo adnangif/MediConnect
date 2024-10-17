@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:styles>
-        <link rel="stylesheet" href="/css/home_styles.css" >
+        <link rel="stylesheet" href="/css/home_styles.css">
     </x-slot:styles>
 
     <x-navbar />
@@ -15,7 +15,9 @@
                     is just a click away.
                 </p>
                 <div class="btn-container gap-8">
-                    <a href="#get-started" class='btn'>Get Started</a>
+                    @if (!Auth::check())
+                        <a href="#get-started" class='btn'>Get Started</a>
+                    @endif
                     <a href="/search" class='outline-btn'>search doctor</a>
                 </div>
             </div>
@@ -25,7 +27,8 @@
 
         <div class="section">
             <div class="title">Why Choose
-                <span class="text-emerald-600 font-semibold">MediConnect?</span></div>
+                <span class="text-emerald-600 font-semibold">MediConnect?</span>
+            </div>
             <div class="flex justify-center gap-4 bg-white p-4 rounded">
                 <p class="text-secondary">
                     With MediConnect, accessing healthcare has never been easier. You can schedule consultations with
@@ -80,43 +83,47 @@
 
         </div>
 
-        <div id="get-started"></div>
-        <div class="flex">
-            <div class="text-container">
-                <div class="title">As a Patient</div>
-                <p class="text-subtitle">Registering as a patient on MediConnect is quick and hassle-free. Simply
-                    create an account using your email or phone number, complete your profile with basic information
-                    and medical history, and verify your identity for security. Once registered, you can easily
-                    browse through our list of certified doctors and book appointments at your convenience. With
-                    MediConnect, accessing quality healthcare is just a few clicks away.
-                </p>
-                <div class="btn-container">
-                    <button class='btn'>Register</button>
+        @if (!Auth::check())
+            <div id="get-started"></div>
+            <div class="flex">
+                <div class="text-container">
+                    <div class="title">As a Patient</div>
+                    <p class="text-subtitle">Registering as a patient on MediConnect is quick and hassle-free. Simply
+                        create an account using your email or phone number, complete your profile with basic information
+                        and medical history, and verify your identity for security. Once registered, you can easily
+                        browse through our list of certified doctors and book appointments at your convenience. With
+                        MediConnect, accessing quality healthcare is just a few clicks away.
+                    </p>
+                    <div class="btn-container">
+                        <button class='btn'>Register</button>
+                    </div>
+                </div>
+                <lottie-player src="/lottie/heart-research.json" style="height: 600px;" background="transparent"
+                    speed="1" loop autoplay></lottie-player>
+            </div>
+
+            <div class="flex">
+                <div class="text-container">
+                    <div class="title">As a Doctor</div>
+                    <p class="text-subtitle">To become a MediConnect Certified Doctor, simply create an account and
+                        submit
+                        your medical credentials for verification. Once your qualifications are reviewed and approved,
+                        you
+                        can complete your profile with your specialties and experience to help patients find you. As a
+                        certified doctor, you’ll be able to offer virtual consultations and connect with patients from
+                        anywhere, expanding your practice and providing convenient, quality healthcare.
+                    </p>
+                    <div class="btn-container">
+                        <button class='btn'>Register</button>
+                    </div>
+                </div>
+                <div>
+
+                    <lottie-player src="/lottie/healthcare.json" style="height: 500px;width: 500px;margin-top:3rem;"
+                        background="transparent" speed="1" loop autoplay></lottie-player>
                 </div>
             </div>
-            <lottie-player src="/lottie/heart-research.json" style="height: 600px;" background="transparent"
-                speed="1" loop autoplay></lottie-player>
-        </div>
-
-        <div class="flex">
-            <div class="text-container">
-                <div class="title">As a Doctor</div>
-                <p class="text-subtitle">To become a MediConnect Certified Doctor, simply create an account and submit
-                    your medical credentials for verification. Once your qualifications are reviewed and approved, you
-                    can complete your profile with your specialties and experience to help patients find you. As a
-                    certified doctor, you’ll be able to offer virtual consultations and connect with patients from
-                    anywhere, expanding your practice and providing convenient, quality healthcare.
-                </p>
-                <div class="btn-container">
-                    <button class='btn'>Register</button>
-                </div>
-            </div>
-            <div>
-
-                <lottie-player src="/lottie/healthcare.json" style="height: 500px;width: 500px;margin-top:3rem;"
-                    background="transparent" speed="1" loop autoplay></lottie-player>
-            </div>
-        </div>
+        @endif
 
         <div class="section">
             <div class="text-container">
@@ -129,7 +136,8 @@
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
                         <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
+                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist &
+                            Trauma
                             Surgeon</i>
                     </div>
                     <div class="">
@@ -142,7 +150,8 @@
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
                         <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
+                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist &
+                            Trauma
                             Surgeon</i>
                     </div>
                     <div class="">
@@ -155,7 +164,8 @@
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
                         <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
+                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist &
+                            Trauma
                             Surgeon</i>
                     </div>
                     <div class="">
@@ -168,7 +178,8 @@
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
                         <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
+                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist &
+                            Trauma
                             Surgeon</i>
                     </div>
                     <div class="">
@@ -181,7 +192,8 @@
                     <div>
                         <div class="font-bold">Muhammad Abdul Latif</div>
                         <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist & Trauma
+                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist &
+                            Trauma
                             Surgeon</i>
                     </div>
                     <div class="">
