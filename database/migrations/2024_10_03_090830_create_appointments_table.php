@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\AppointmentStatusTypes;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -23,6 +24,10 @@ return new class extends Migration
                 ->onUpdate('cascade');
             $table->text('message');
             $table->date('date');
+            $table->enum('status', AppointmentStatusTypes::toArray())
+                ->default(AppointmentStatusTypes::PENDING);
+            $table->time('time')->nullable();
+            $table->integer('duration')->default(30 * 60);
             $table->timestamps();
         });
     }

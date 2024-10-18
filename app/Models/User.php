@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+    protected $primaryKey = 'id';
 
     /**
      * The attributes that are mass assignable.
@@ -52,11 +53,11 @@ class User extends Authenticatable
 
     public function patient(): HasOne
     {
-        return $this->hasOne(Patient::class);
+        return $this->hasOne(Patient::class, 'user_id');
     }
 
     public function doctor(): HasOne{
-        return $this->hasOne(Doctor::class);
+        return $this->hasOne(Doctor::class, 'user_id');
     }
 
     public function isUser(){

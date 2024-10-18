@@ -12,14 +12,13 @@ Route::get('/', function () {
     return view('home_page');
 });
 
-Route::get('/all-appointments/', function () {
-    return view('all_appointments');
-});
 
 Route::middleware([EnsureRoleIsUser::class])->group(function () {
     Route::get('/book-appointment/{doctor}', [AppointmentController::class, 'showAppointmentForm'])
-        ->name('appointment-form');
+    ->name('appointment-form');
     Route::post('/book-appointment/{doctor}', [AppointmentController::class, 'handleAppointmentFormSubmit']);
+    Route::get('/all-appointments/', [AppointmentController::class, 'showAllAppointments'])
+    ->name('all-appointments');
 });
 
 

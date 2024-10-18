@@ -30,4 +30,11 @@ class AppointmentController extends Controller
 
         return view('appointment_create_success');
     }
+
+    public function showAllAppointments(Request $request)
+    {
+        return view('all_appointments', [
+            'appointments' => Auth::user()->patient->appointments,
+        ]);
+    }
 }
