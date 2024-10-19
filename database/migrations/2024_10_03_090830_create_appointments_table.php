@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('appointments', function (Blueprint $table) {
-            $table->id('app_id');
+            $table->id('appointment_id');
             $table->foreignId('doctor_id')
                 ->references('doctor_id')->on('doctors')
                 ->onDelete('cascade')

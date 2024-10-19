@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PHPUnit\Framework\Constraint\Constraint;
 
 return new class extends Migration
 {
@@ -12,15 +13,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('consultations', function (Blueprint $table) {
-            $table->id('cons_id');
-            $table->foreignId('patient_id')
-                      ->references('patient_id')->on('patients')
-                      ->onDelete('cascade')
-                      ->onUpdate('cascade');
-            $table->foreignId('doctor_id')
-                      ->references('doctor_id')->on('doctors')
-                      ->onDelete('cascade')
-                      ->onUpdate('cascade');
+            $table->id('consultation_id');
+            $table->text('doctor_sdp')->defualt('');
+            $table->text('patient_sdp')->defualt('');
+            $table->foreignId('appointment_id')
+                ->references('appointment_id')->on('appointments')
+                ->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
