@@ -84,12 +84,19 @@
                         <p><strong>Specialization</strong> <span>{{ $appointment->doctor->specialization }}</span></p>
                         <p><strong>Date</strong> <span>{{ date('d F, Y', strtotime($appointment->date)) }}</span></p>
                         <p><strong>Time</strong> <span>10:00 AM</span></p>
-                        <p><strong>Consultation Mode:</strong> <span>Telehealth Session</span></p>
+                        <p><strong>Consultation Mode</strong> <span>MediConnect Session</span></p>
                         <p><strong>Status</strong> <span class="status pending">Pending</span></p>
                         <p><strong>Estimated Duration</strong> <span>30 minutes</span></p>
                         <p class="actions flex justify-end gap-4 pt-4">
                             <button class="btn bg-emerald-200 text-emerald-950">Reschedule</button>
                             <button class="btn bg-red-200 text-red-950">Cancel appointment</button>
+                            @if (1)
+                                <button class="col-span-2 btn bg-blue-200 text-emerald-950">Join Now</button>
+                            @else
+                                <button class="col-span-2 btn bg-gray-300 cursor-not-allowed text-emerald-950">Join at
+                                    10:00 AM</button>
+                            @endif
+
                         </p>
                     </div>
                 @endforeach

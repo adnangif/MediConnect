@@ -34,7 +34,7 @@ class AppointmentController extends Controller
     public function showAllAppointments(Request $request)
     {
         return view('all_appointments', [
-            'appointments' => Auth::user()->patient->appointments,
+            'appointments' => Auth::user()->patient->appointments()->orderBy('created_at', 'desc')->get(),
         ]);
     }
 }
