@@ -87,7 +87,6 @@
         }
 
         async function createAnswer() {
-            console.log('created answer')
 
             peerConnection = new RTCPeerConnection(servers);
 
@@ -134,6 +133,7 @@
             let answer = await peerConnection.createAnswer()
             await peerConnection.setLocalDescription(answer)
             await sendAnswer(answer);
+            console.log('created answer')
         }
 
         init()

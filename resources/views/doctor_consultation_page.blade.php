@@ -19,6 +19,7 @@
                 height: 100%;
             }
         </style>
+        <script src="https://cdn.tailwindcss.com"></script>
 
 
     </x-slot:styles>
