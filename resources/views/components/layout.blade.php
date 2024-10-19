@@ -21,6 +21,8 @@
     </script>
     {{ $styles ?? '' }}
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 
     @vite(['resources/css/app.css'])
 </head>

@@ -26,7 +26,7 @@ class AppointmentController extends Controller
         $validated['doctor_id'] = $doctor->doctor_id;
         $validated['patient_id'] = Auth::user()->patient->patient_id;
 
-        $appointment = Appointment::create($validated);
+        $appointment = Appointment::createAppointment($validated);
 
         return view('appointment_create_success');
     }

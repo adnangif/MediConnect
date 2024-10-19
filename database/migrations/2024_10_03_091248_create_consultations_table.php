@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('consultations', function (Blueprint $table) {
             $table->id('consultation_id');
-            $table->text('doctor_sdp')->defualt('');
-            $table->text('patient_sdp')->defualt('');
+            $table->text('doctor_sdp')->nullable();
+            $table->text('patient_sdp')->nullable();
             $table->foreignId('appointment_id')
                 ->references('appointment_id')->on('appointments')
                 ->onUpdate('cascade')->onDelete('cascade');

@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ConsultationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\doctor_profile;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\EnsureRoleIsDoctor;
 use App\Http\Middleware\EnsureRoleIsUser;
+use App\Http\Middleware\EnsureRoleIsUserOrDoctor;
 
 Route::get('/', function () {
     return view('home_page');
@@ -15,16 +18,33 @@ Route::get('/', function () {
 
 Route::middleware([EnsureRoleIsUser::class])->group(function () {
     Route::get('/book-appointment/{doctor}', [AppointmentController::class, 'showAppointmentForm'])
-    ->name('appointment-form');
+        ->name('appointment-form');
     Route::post('/book-appointment/{doctor}', [AppointmentController::class, 'handleAppointmentFormSubmit']);
     Route::get('/all-appointments/', [AppointmentController::class, 'showAllAppointments'])
-    ->name('all-appointments');
+        ->name('all-appointments');
+
+    Route::get('/connect/patient/{consultation}', [ConsultationController::class, 'waitingRoom'])
+        ->name('waiting-room');
+
+    Route::get('/connect/patient/{consultation}/offer', [ConsultationController::class, 'getOffer'])
+        ->name('get-offer');
+    Route::post('/connect/patient/{consultation}/answer', [ConsultationController::class, 'setAnswer'])
+        ->name('set-answer');
 });
 
 
-Route::get('/consultation/', function () {
-    return view('consultation_page');
+Route::middleware([EnsureRoleIsDoctor::class])->group(function () {
+    Route::get('/connect/doctor/{consultation}', [ConsultationController::class, 'consultationRoom'])
+        ->name('consultation-room');
+
+    Route::post('/connect/doctor/{consultation}/offer', [ConsultationController::class, 'setOffer'])
+        ->name('set-offer');
+    Route::get('/connect/doctor/{consultation}/answer', [ConsultationController::class, 'getAnswer'])
+        ->name('get-answer');
 });
+
+
+
 
 Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [UserController::class, 'login']);
