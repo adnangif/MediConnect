@@ -88,10 +88,17 @@
                         <p><strong>Status</strong> <span class="status pending">Pending</span></p>
                         <p><strong>Estimated Duration</strong> <span>30 minutes</span></p>
                         <p class="actions flex justify-end gap-4 pt-4">
-                            <button class="btn bg-emerald-200 text-emerald-950">Reschedule</button>
-                            <button class="btn bg-red-200 text-red-950">Cancel appointment</button>
+                            <button class="btn icon-text bg-emerald-200 text-emerald-950">
+                                <img width="24" src="/image/redo.svg"/>
+                                Reschedule</button>
+                            <button class="btn icon-text bg-red-200 text-red-950">
+                                <img width="24" src="/image/cancel.svg"/>
+                                Cancel appointment</button>
                             @if (1)
-                                <button class="col-span-2 btn bg-blue-200 text-emerald-950">Join Now</button>
+                                <button class="col-span-2 btn icon-text bg-blue-200 text-blue-950">Join Now
+                                <img width="20" src="/image/new-tab.svg"/>
+
+                                </button>
                             @else
                                 <button class="col-span-2 btn bg-gray-300 cursor-not-allowed text-emerald-950">Join at
                                     10:00 AM</button>

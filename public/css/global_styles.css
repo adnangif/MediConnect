@@ -52,6 +52,13 @@ a{
     z-index: 1;
 }
 
+.btn.icon-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .icon-btn{
     height: 40px;
     transition: all 300ms;
