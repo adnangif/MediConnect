@@ -19,8 +19,6 @@
                 height: 100%;
             }
         </style>
-        <script src="https://cdn.tailwindcss.com"></script>
-
 
     </x-slot:styles>
     <x-navbar />
@@ -39,7 +37,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <script>
+    <script type="module" defer>
         let localStream;
         let remoteStream;
         let peerConnection;
@@ -53,6 +51,8 @@
                 ]
             }]
         }
+
+        console.log(window.Echo)
 
 
         async function createOffer() {
@@ -138,10 +138,10 @@
             }
         }
 
-        createOffer();
+        // createOffer();
 
-        setInterval(async () => {
-            await addAnswer()
-        }, 3000);
+        // setInterval(async () => {
+        //     await addAnswer()
+        // }, 3000);
     </script>
 </x-layout>
