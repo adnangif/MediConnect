@@ -52,13 +52,11 @@
             }]
         }
 
-        console.log(window.Echo)
-
 
         async function createOffer() {
             localStream = await navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: false,
+                audio: true,
             });
             peerConnection = new RTCPeerConnection(servers);
 
@@ -138,10 +136,10 @@
             }
         }
 
-        // createOffer();
+        createOffer();
 
-        // setInterval(async () => {
-        //     await addAnswer()
-        // }, 3000);
+        setInterval(async () => {
+            addAnswer()
+        }, 1000);
     </script>
 </x-layout>

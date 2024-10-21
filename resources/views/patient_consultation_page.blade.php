@@ -79,7 +79,7 @@
         async function init() {
             localStream = await navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: false,
+                audio: true,
             });
 
             document.getElementById('local-video').srcObject = localStream;
@@ -87,6 +87,26 @@
         }
 
         async function createAnswer() {
+            await init();
+
+            let offer = await getOffer()
+
+            if (!offer) {
+                console.log('no offer')
+                return
+            }
+
+            if (offer == null) {
+                console.log('offer is null')
+                return
+            }
+
+            if (offer === prevOffer) {
+                console.log('offer did not change')
+                return
+            } else {
+                prevOffer = offer;
+            }
 
             peerConnection = new RTCPeerConnection(servers);
 
@@ -109,24 +129,7 @@
                 }
             }
 
-            let offer = await getOffer()
 
-            if (!offer) {
-                console.log('no offer')
-                return
-            }
-
-            if (offer == null) {
-                console.log('offer is null')
-                return
-            }
-
-            if (offer === prevOffer) {
-                console.log('offer did not change')
-                return
-            } else {
-                prevOffer = offer;
-            }
 
             offer = JSON.parse(offer)
             await peerConnection.setRemoteDescription(offer)
@@ -136,10 +139,10 @@
             console.log('created answer')
         }
 
-        init()
+        // createAnswer()
 
-        setTimeout(() => {
+        setInterval(async () => {
             createAnswer()
-        }, 20000);
+        }, 1000);
     </script>
 </x-layout>
