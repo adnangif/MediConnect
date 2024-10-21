@@ -76,18 +76,17 @@
             return offer.offer
         }
 
-        async function init() {
+        async function init(callback) {
             localStream = await navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true,
             });
 
             document.getElementById('local-video').srcObject = localStream;
-
+            callback()
         }
 
         async function createAnswer() {
-            await init();
 
             let offer = await getOffer()
 
@@ -140,9 +139,10 @@
         }
 
         // createAnswer()
-
-        setInterval(async () => {
-            createAnswer()
-        }, 1000);
+        init(() => {
+            setInterval(async () => {
+                createAnswer()
+            }, 1000);
+        })
     </script>
 </x-layout>

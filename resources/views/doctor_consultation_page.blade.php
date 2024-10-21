@@ -53,7 +53,7 @@
         }
 
 
-        async function createOffer() {
+        async function createOffer(callback) {
             localStream = await navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true,
@@ -83,6 +83,7 @@
             await peerConnection.setLocalDescription(offer)
 
             await sendOffer(offer)
+            callback()
         }
 
         async function sendOffer(offer) {
@@ -136,10 +137,11 @@
             }
         }
 
-        createOffer();
+        createOffer(()=>{
+            setInterval(async () => {
+                addAnswer()
+            }, 1000);
+        });
 
-        setInterval(async () => {
-            addAnswer()
-        }, 1000);
     </script>
 </x-layout>
