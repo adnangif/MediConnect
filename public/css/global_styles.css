@@ -180,10 +180,13 @@ textarea{
     transition: transform 0.5s ease, opacity 0.5s ease;
     opacity: 0;
     transform: translateX(10px); /* Off-screen initially */
+    pointer-events: none;
 }
 
 #notification-drawer.open {
+    display: block;
     opacity: 1;
     transform: translateX(0); /* Slide in */
+    pointer-events: auto;
 }
 
