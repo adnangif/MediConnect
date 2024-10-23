@@ -9,6 +9,7 @@
         <a href="#"
         class="p-2 rounded-lg @if (!$notification->is_read) font-bold @endif notification-message hover:bg-slate-200 duration-200">{{ $notification->message }}</a>
         @endforeach
+        <button class="outline-btn">Clear all</button>
     </div>
 </div>
 
