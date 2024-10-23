@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Doctor;
+use App\Models\Notification;
+use App\Models\Patient;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,11 +16,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        User::factory()
+            ->count(20)
+            ->create();
+        
+        Patient::factory()
+            ->count(5)
+            ->create();
+        
+        Doctor::factory()
+            ->count(5)
+            ->create();
+        
+        Notification::factory()
+            ->count(50)
+            ->create();
     }
 }

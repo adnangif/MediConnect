@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use App\Enums\UserTypes;
+use App\Models\Patient;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +19,16 @@ class PatientFactory extends Factory
      */
     public function definition(): array
     {
+        $forbidden_ids = Patient::where('user_id', '!=', null)->pluck('user_id')->toArray();
         return [
-            //
+            'name' => fake()->name(),
+            'user_id' => User::where('role', UserTypes::USER->value)
+                            ->whereNotIn('id', $forbidden_ids)
+                            ->inRandomOrder()->first()->id,
+            'gender' => fake()->randomElement(['male', 'female']),
+            'age' => fake()->numberBetween(1, 100),
+            'address' => fake()->address(),
+            'contact' => fake()->phoneNumber(),
         ];
     }
 }
