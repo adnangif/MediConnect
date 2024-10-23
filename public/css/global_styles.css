@@ -175,3 +175,15 @@ textarea{
 .active{
     background-color: var(--bg-icon-btn);
 }
+
+#notification-drawer {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    transform: translateX(10px); /* Off-screen initially */
+}
+
+#notification-drawer.open {
+    opacity: 1;
+    transform: translateX(0); /* Slide in */
+}
+

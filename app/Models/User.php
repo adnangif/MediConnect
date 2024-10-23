@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Enums\UserTypes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -60,6 +61,12 @@ class User extends Authenticatable
         return $this->hasOne(Doctor::class, 'user_id');
     }
 
+
+    public function notifications(): HasMany
+    {
+        return $this->hasMany(Notification::class, 'user_id');
+    }
+
     public function isUser(){
         return $this->role == UserTypes::USER->value;
     }
@@ -71,6 +78,8 @@ class User extends Authenticatable
     public function isAdmin(){
         return $this->role == UserTypes::ADMIN->value;
     }
+
+
 
     public static function createUser(array $validated)
     {
