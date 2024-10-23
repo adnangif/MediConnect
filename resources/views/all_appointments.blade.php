@@ -88,9 +88,20 @@
                         <p><strong>Status</strong> <span class="status pending">Pending</span></p>
                         <p><strong>Estimated Duration</strong> <span>30 minutes</span></p>
                         <p class="actions flex justify-end gap-4 pt-4">
-                            <button class="btn icon-text bg-emerald-200 text-emerald-950">
+                            {{-- <button class="btn icon-text bg-emerald-200 text-emerald-950" a href="/book_appointment">
                                 <img width="24" src="/image/redo.svg" />
-                                Reschedule</button>
+                                Reschedule</button> --}}
+                            @if (Auth::user()->isUser())
+                                <a href="{{ route('appointment-form', $appointment) }}"
+                                    class="btn icon-text bg-emerald-200 text-emerald-950">
+                                    <img width="24" src="/image/redo.svg" />
+                                    Reschedule
+                                </a>
+                            @else
+                                <button class="btn bg-gray-300 cursor-not-allowed text-gray-500">Reschedule
+                                    Unavailable</button>
+                            @endif
+
                             <button class="btn icon-text bg-red-200 text-red-950">
                                 <img width="24" src="/image/cancel.svg" />
                                 Cancel appointment</button>

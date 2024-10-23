@@ -47,7 +47,7 @@
             </a>
         </div>
         <div>
-            <a href="/signup" class="btn">Sign Up</a>
+            <a href="/user/register" class="btn">Sign Up</a>
         </div>
         <div>
             <a href="/faq" class="btn">FAQ</a>

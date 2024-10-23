@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Middleware\EnsureRoleIsDoctor;
 use App\Http\Middleware\EnsureRoleIsUser;
 use App\Http\Middleware\EnsureRoleIsUserOrDoctor;
+use App\Models\Appointment;
 
 Route::get('/', function () {
     return view('home_page');
@@ -20,6 +21,8 @@ Route::middleware([EnsureRoleIsUser::class])->group(function () {
     Route::get('/book-appointment/{doctor}', [AppointmentController::class, 'showAppointmentForm'])
         ->name('appointment-form');
     Route::post('/book-appointment/{doctor}', [AppointmentController::class, 'handleAppointmentFormSubmit']);
+    Route::get('/update-appointment/{appointment}', [Appointment::class, 'showAppointmentUpdateForm']);
+    Route::post('/update-appointment/{appointment}', [Appointment::class, 'updateAppointment']);
     Route::get('/all-appointments/', [AppointmentController::class, 'showAllAppointments'])
         ->name('all-appointments');
 
