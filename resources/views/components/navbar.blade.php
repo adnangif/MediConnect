@@ -1,4 +1,4 @@
-<div class="navbar items-center relative">
+<div class="navbar items-center">
     <div class="grow">
         <a href="/" class="flex items-center w-fit">
             <img class="main-logo" src={{ asset('image/logo.svg') }} />
