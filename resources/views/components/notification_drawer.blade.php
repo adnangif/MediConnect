@@ -25,7 +25,7 @@
 
     document.addEventListener('click', (event) => {
         if (!notificationDrawer.contains(event.target) && !notificationBtn.contains(event.target)) {
-            toggleDrawer()
+            notificationDrawer.classList.remove('open');
         }
     })
 </script>
