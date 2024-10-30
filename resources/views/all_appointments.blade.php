@@ -112,6 +112,13 @@
                                         <img width="20" src="/image/new-tab.svg" />
                                     </a>
                                 @endif
+
+                                @if (Auth::user()->isDoctor())
+                                    <a href="{{ route('consultation-room', $appointment->consultation) }}"
+                                        class="col-span-2 btn icon-text bg-blue-200 text-blue-950">Join Now
+                                        <img width="20" src="/image/new-tab.svg" />
+                                    </a>
+                                @endif
                             @else
                                 <button class="col-span-2 btn bg-gray-300 cursor-not-allowed text-emerald-950">Join at
                                     10:00 AM</button>

@@ -1,16 +1,15 @@
 <?php
 
-use App\Http\Controllers\AppointmentController;
-use App\Http\Controllers\ConsultationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\doctor_profile;
+use App\Http\Controllers\UserController;
+use App\Http\Middleware\EnsureRoleIsUser;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\SearchController;
-use App\Http\Controllers\UserController;
 use App\Http\Middleware\EnsureRoleIsDoctor;
-use App\Http\Middleware\EnsureRoleIsUser;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ConsultationController;
 use App\Http\Middleware\EnsureRoleIsUserOrDoctor;
-use App\Models\Appointment;
 
 Route::get('/', function () {
     return view('home_page');
@@ -25,8 +24,7 @@ Route::middleware([EnsureRoleIsUser::class])->group(function () {
         ->name('update-appointment');
     Route::post('/update-appointment/{appointment}', [AppointmentController::class, 'handleAppointmentUpdateForm'])
         ->name('update-appointment');
-    Route::get('/all-appointments/', [AppointmentController::class, 'showAllAppointments'])
-        ->name('all-appointments');
+
 
     Route::get('/connect/patient/{consultation}', [ConsultationController::class, 'waitingRoom'])
         ->name('waiting-room');
@@ -35,6 +33,12 @@ Route::middleware([EnsureRoleIsUser::class])->group(function () {
         ->name('get-offer');
     Route::post('/connect/patient/{consultation}/answer', [ConsultationController::class, 'setAnswer'])
         ->name('set-answer');
+});
+
+
+Route::middleware([EnsureRoleIsUserOrDoctor::class])->group(function () {
+    Route::get('/all-appointments/', [AppointmentController::class, 'showAllAppointments'])
+    ->name('all-appointments');
 });
 
 
