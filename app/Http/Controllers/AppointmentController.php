@@ -54,6 +54,25 @@ class AppointmentController extends Controller
     {
         return view('update_appointment', [
             'appointment' => $appointment,
+            'doctor' => $appointment->doctor,
         ]);
+    }
+
+    public function handleAppointmentUpdateForm(Request $request, Appointment $appointment){
+
+        $validated = $request->validate([
+            'date' => ['required', 'date'],
+            'message' => ['required'],
+        ]);
+
+        $appointment->date = $validated['date'];
+        $appointment->message = $validated['message'];
+        $appointment->save();
+
+        return redirect()->route('success')
+                        ->with('message', 'Thank you For Your request. Appointment Reshedule Request has been made;');
+
+
+
     }
 }

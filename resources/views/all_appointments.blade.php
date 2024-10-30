@@ -92,7 +92,7 @@
                                 <img width="24" src="/image/redo.svg" />
                                 Reschedule</button> --}}
                             @if (Auth::user()->isUser())
-                                <a href="{{ route('appointment-form', $appointment) }}"
+                                <a href="{{ route('update-appointment', $appointment) }}"
                                     class="btn icon-text bg-emerald-200 text-emerald-950">
                                     <img width="24" src="/image/redo.svg" />
                                     Reschedule

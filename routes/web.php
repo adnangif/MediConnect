@@ -21,8 +21,10 @@ Route::middleware([EnsureRoleIsUser::class])->group(function () {
     Route::get('/book-appointment/{doctor}', [AppointmentController::class, 'showAppointmentForm'])
         ->name('appointment-form');
     Route::post('/book-appointment/{doctor}', [AppointmentController::class, 'handleAppointmentFormSubmit']);
-    Route::get('/update-appointment/{appointment}', [Appointment::class, 'showAppointmentUpdateForm']);
-    Route::post('/update-appointment/{appointment}', [Appointment::class, 'updateAppointment']);
+    Route::get('/update-appointment/{appointment}', [AppointmentController::class, 'showAppointmentUpdateForm'])
+        ->name('update-appointment');
+    Route::post('/update-appointment/{appointment}', [AppointmentController::class, 'handleAppointmentUpdateForm'])
+        ->name('update-appointment');
     Route::get('/all-appointments/', [AppointmentController::class, 'showAllAppointments'])
         ->name('all-appointments');
 
@@ -35,6 +37,10 @@ Route::middleware([EnsureRoleIsUser::class])->group(function () {
         ->name('set-answer');
 });
 
+
+Route::get('/success', function () {
+    return view('success');
+})->name('success');
 
 Route::middleware([EnsureRoleIsDoctor::class])->group(function () {
     Route::get('/connect/doctor/{consultation}', [ConsultationController::class, 'consultationRoom'])
