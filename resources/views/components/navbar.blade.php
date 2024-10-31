@@ -72,15 +72,15 @@
         </div>
     @else
         <div>
-            <a href="/login" class="btn">
+            <a href="/login" class="outline-btn">
                 login
             </a>
         </div>
         <div>
-            <a href="/user/register" class="btn">Sign Up</a>
+            <a href="/user/register" class="outline-btn">Sign Up</a>
         </div>
         <div>
-            <a href="/faq" class="btn">FAQ</a>
+            <a href="/faq" class="outline-btn">FAQ</a>
         </div>
     @endif
 </div>
