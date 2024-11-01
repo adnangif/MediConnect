@@ -34,7 +34,6 @@
         </div>
     </div>
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
     <script type="module" defer>

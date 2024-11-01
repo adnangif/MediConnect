@@ -39,6 +39,8 @@ Route::middleware([EnsureRoleIsUser::class])->group(function () {
 Route::middleware([EnsureRoleIsUserOrDoctor::class])->group(function () {
     Route::get('/all-appointments/', [AppointmentController::class, 'showAllAppointments'])
     ->name('all-appointments');
+    Route::delete('appointment/{appointment}', [AppointmentController::class, 'destroy'])
+    ->name('delete-appointment');
 });
 
 

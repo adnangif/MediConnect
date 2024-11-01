@@ -35,7 +35,7 @@
 
             <!-- Search Button -->
             <button type="submit" class="btn bg-emerald-200 text-emerald-800 flex items-center justify-between gap-2"
-                onclick="searchDoctor()">
+                >
                 <img src="/image/search.svg" width="20" />
                 <span>
                     Search

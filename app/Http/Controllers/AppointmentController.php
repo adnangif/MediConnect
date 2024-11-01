@@ -8,6 +8,7 @@ use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Enums\UserTypes;
+use Illuminate\Support\Facades\Log;
 
 class AppointmentController extends Controller
 {
@@ -74,5 +75,12 @@ class AppointmentController extends Controller
 
 
 
+    }
+
+    public function destroy(Appointment $appointment)
+    {
+        Log::debug('Appointment deleted: ' . $appointment->id);
+        $appointment->delete();
+        return redirect()->route('all-appointments');
     }
 }

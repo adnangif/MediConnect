@@ -87,13 +87,10 @@
                         <p><strong>Consultation Mode</strong> <span>MediConnect Session</span></p>
                         <p><strong>Status</strong> <span class="status pending">Pending</span></p>
                         <p><strong>Estimated Duration</strong> <span>30 minutes</span></p>
-                        <p class="actions flex justify-end gap-4 pt-4">
-                            {{-- <button class="btn icon-text bg-emerald-200 text-emerald-950" a href="/book_appointment">
-                                <img width="24" src="/image/redo.svg" />
-                                Reschedule</button> --}}
+                        <div class="actions  justify-end gap-4 pt-4 grid grid-cols-2">
                             @if (Auth::user()->isUser())
                                 <a href="{{ route('update-appointment', $appointment) }}"
-                                    class="btn icon-text bg-emerald-200 text-emerald-950">
+                                    class="btn icon-text col-span-1 bg-emerald-200 text-emerald-950">
                                     <img width="24" src="/image/redo.svg" />
                                     Reschedule
                                 </a>
@@ -101,10 +98,16 @@
                                 <button class="btn bg-gray-300 cursor-not-allowed text-gray-500">Reschedule
                                     Unavailable</button>
                             @endif
+                            <form action="{{ route('delete-appointment', $appointment) }}" method="POST"
+                                onsubmit="return confirm('Are you sure you want to cancel this appointment?')"
+                                class="col-span-1">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn icon-text bg-red-200 text-red-950" type="submit">
+                                    <img width="24" src="/image/cancel.svg" />
+                                    Cancel appointment</button>
+                            </form>
 
-                            <button class="btn icon-text bg-red-200 text-red-950">
-                                <img width="24" src="/image/cancel.svg" />
-                                Cancel appointment</button>
                             @if (1)
                                 @if (Auth::user()->isUser())
                                     <a href="{{ route('waiting-room', $appointment->consultation) }}"
@@ -123,8 +126,8 @@
                                 <button class="col-span-2 btn bg-gray-300 cursor-not-allowed text-emerald-950">Join at
                                     10:00 AM</button>
                             @endif
+                        </div>
 
-                        </p>
                     </div>
                 @endforeach
 
