@@ -14,4 +14,9 @@ class Consultation extends Model
         'patient_sdp',
         'appointment_id',
     ];
+
+    public function appointment()
+    {
+        return $this->belongsTo(Appointment::class);
+    }
 }

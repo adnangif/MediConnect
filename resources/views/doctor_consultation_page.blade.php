@@ -52,7 +52,7 @@
         }
 
 
-        async function createOffer(callback) {
+        async function createOffer(callback = () => {}) {
             localStream = await navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true,
@@ -136,11 +136,20 @@
             }
         }
 
-        createOffer(()=>{
-            setInterval(async () => {
-                addAnswer()
-            }, 1000);
-        });
+
+        document.onreadystatechange = function() {
+            if (document.readyState === 'complete') {
+                window.Echo.channel('consultation.{{ $consultation->consultation_id }}')
+                    .listen('AnswerCreated', async (event) => {
+                        console.log("Now Adding Answer...")
+                        await addAnswer()
+                    })
+                    .listen('PatientConnected', async (event) => {
+                        console.log("Patient Connected, Creating offer...")
+                        await createOffer();
+                    })
+            }
+        }
 
     </script>
 </x-layout>

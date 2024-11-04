@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <script>
+    <script defer>
         let localStream;
         let remoteStream;
         let peerConnection;
@@ -74,7 +74,8 @@
             return offer.offer
         }
 
-        async function init(callback) {
+        async function init(callback = () => {}) {
+            console.log('waiting for offer...')
             localStream = await navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: true,
@@ -137,10 +138,16 @@
         }
 
         // createAnswer()
-        init(() => {
-            setInterval(async () => {
-                createAnswer()
-            }, 1000);
-        })
+        init()
+
+        document.onreadystatechange = function() {
+            if (document.readyState === 'complete') {
+                window.Echo.channel('consultation.{{ $consultation->consultation_id }}')
+                    .listen('OfferCreated', async (event) => {
+                        console.log("Now Creating Answer...")
+                        await createAnswer()
+                    })
+            }
+        }
     </script>
 </x-layout>

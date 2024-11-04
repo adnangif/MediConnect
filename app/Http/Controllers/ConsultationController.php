@@ -2,16 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\AnswerCreated;
+use App\Events\OfferCreated;
+use App\Events\PatientConnected;
 use App\Models\Consultation;
-use Barryvdh\Debugbar\Facades\Debugbar;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use Barryvdh\Debugbar\Facades\Debugbar;
 
 class ConsultationController extends Controller
 {
     public function waitingRoom(Request $request, Consultation $consultation)
     {
+        PatientConnected::dispatch($consultation->consultation_id);
         return view("patient_consultation_page",  [
             'consultation' => $consultation,
         ]);
@@ -31,6 +35,7 @@ class ConsultationController extends Controller
         Log::info("creating offer for {$user}");
         $consultation->doctor_sdp = $offer;
         $consultation->save();
+        OfferCreated::dispatch($consultation->consultation_id);
         return response("Saved successfully!!");
     }
 
@@ -56,6 +61,7 @@ class ConsultationController extends Controller
         Log::info("creating Answer for {$user}");
         $consultation->patient_sdp = $request->input('answer');
         $consultation->save();
+        AnswerCreated::dispatch($consultation->consultation_id);
         return response("Saved successfully!!");
     }
 }
