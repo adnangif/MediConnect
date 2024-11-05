@@ -144,7 +144,11 @@
                 window.Echo.channel('consultation.{{ $consultation->consultation_id }}')
                     .listen('OfferCreated', async (event) => {
                         console.log("Now Creating Answer...")
-                        await createAnswer()
+                        try {
+                            await createAnswer()
+                        }catch(err) {
+                            console.log(err)
+                        }
                     })
                     .listen('DoctorConnected', async (event) => {
                         window.location.reload();
