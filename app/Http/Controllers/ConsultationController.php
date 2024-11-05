@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\AnswerCreated;
+use App\Events\DoctorConnected;
 use App\Events\OfferCreated;
 use App\Events\PatientConnected;
 use App\Models\Consultation;
@@ -23,6 +24,7 @@ class ConsultationController extends Controller
 
     public function consultationRoom(Request $request, Consultation $consultation)
     {
+        DoctorConnected::dispatch($consultation->consultation_id);
         return view("doctor_consultation_page", [
             'consultation' => $consultation,
         ]);

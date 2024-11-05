@@ -146,8 +146,11 @@
                         console.log("Now Creating Answer...")
                         await createAnswer()
                     })
+                    .listen('DoctorConnected', async (event) => {
+                        window.location.reload();
+                    })
+                init()
             }
         }
-        init()
     </script>
 </x-layout>

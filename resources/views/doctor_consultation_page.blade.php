@@ -145,9 +145,9 @@
                         await addAnswer()
                     })
                     .listen('PatientConnected', async (event) => {
-                        console.log("Patient Connected, Creating offer...")
-                        await createOffer();
+                        window.location.reload();
                     })
+                await createOffer();
 
             }
         }
