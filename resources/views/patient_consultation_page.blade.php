@@ -138,7 +138,6 @@
         }
 
         // createAnswer()
-        init()
 
         document.onreadystatechange = function() {
             if (document.readyState === 'complete') {
@@ -149,5 +148,6 @@
                     })
             }
         }
+        init()
     </script>
 </x-layout>

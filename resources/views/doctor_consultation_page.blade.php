@@ -137,7 +137,7 @@
         }
 
 
-        document.onreadystatechange = function() {
+        document.onreadystatechange = async function() {
             if (document.readyState === 'complete') {
                 window.Echo.channel('consultation.{{ $consultation->consultation_id }}')
                     .listen('AnswerCreated', async (event) => {
@@ -148,8 +148,8 @@
                         console.log("Patient Connected, Creating offer...")
                         await createOffer();
                     })
+
             }
         }
-
     </script>
 </x-layout>
