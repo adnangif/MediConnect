@@ -23,7 +23,7 @@ Route::middleware([EnsureRoleIsUser::class])->group(function () {
     Route::get('/update-appointment/{appointment}', [AppointmentController::class, 'showAppointmentUpdateForm'])
         ->name('update-appointment');
     Route::post('/update-appointment/{appointment}', [AppointmentController::class, 'handleAppointmentUpdateForm'])
-        ->name('update-appointment');
+        ->name('update-appointment-post');
 
 
     Route::get('/connect/patient/{consultation}', [ConsultationController::class, 'waitingRoom'])
