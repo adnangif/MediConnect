@@ -24,6 +24,9 @@ class ConsultationController extends Controller
 
     public function consultationRoom(Request $request, Consultation $consultation)
     {
+        $consultation->doctor_sdp = null;
+        $consultation->patient_sdp = null;
+        $consultation->save();
         DoctorConnected::dispatch($consultation->consultation_id);
         return view("doctor_consultation_page", [
             'consultation' => $consultation,
