@@ -11,16 +11,20 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class OfferCreated implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $consultation_id;
+    public $offer;
 
-    public function __construct($consultation_id)
+    public function __construct($consultation_id, $offer)
     {
         $this->consultation_id = $consultation_id;
+        $this->offer = $offer;
+        Log::info("Created offer for consultation {$this->consultation_id}");
     }
 
     /**

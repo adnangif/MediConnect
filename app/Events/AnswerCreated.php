@@ -16,9 +16,12 @@ class AnswerCreated implements ShouldBroadcastNow
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $consultation_id;
-    public function __construct($consultation_id)
+    public $answer;
+
+    public function __construct($consultation_id, $answer)
     {
         $this->consultation_id = $consultation_id;
+        $this->answer = $answer;
     }
 
     /**

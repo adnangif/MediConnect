@@ -16,7 +16,6 @@ class ConsultationController extends Controller
 {
     public function waitingRoom(Request $request, Consultation $consultation)
     {
-        PatientConnected::dispatch($consultation->consultation_id);
         return view("patient_consultation_page",  [
             'consultation' => $consultation,
         ]);
@@ -24,10 +23,6 @@ class ConsultationController extends Controller
 
     public function consultationRoom(Request $request, Consultation $consultation)
     {
-        $consultation->doctor_sdp = null;
-        $consultation->patient_sdp = null;
-        $consultation->save();
-        DoctorConnected::dispatch($consultation->consultation_id);
         return view("doctor_consultation_page", [
             'consultation' => $consultation,
         ]);
@@ -38,9 +33,9 @@ class ConsultationController extends Controller
         $offer = $request->input('offer');
         $user = Auth::user();
         Log::info("creating offer for {$user}");
-        $consultation->doctor_sdp = $offer;
-        $consultation->save();
-        OfferCreated::dispatch($consultation->consultation_id);
+        // $consultation->doctor_sdp = $offer;
+        // $consultation->save();
+        OfferCreated::dispatch($consultation->consultation_id, $offer);
         return response("Saved successfully!!");
     }
 
@@ -64,9 +59,9 @@ class ConsultationController extends Controller
     {
         $user = Auth::user();
         Log::info("creating Answer for {$user}");
-        $consultation->patient_sdp = $request->input('answer');
-        $consultation->save();
-        AnswerCreated::dispatch($consultation->consultation_id);
+        // $consultation->patient_sdp = $request->input('answer');
+        // $consultation->save();
+        AnswerCreated::dispatch($consultation->consultation_id, $request->input('answer'));
         return response("Saved successfully!!");
     }
 }
