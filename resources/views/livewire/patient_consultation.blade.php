@@ -38,7 +38,8 @@ new class extends Component {
         </div>
         <div class="min-w-64 w-1/4 py-6 pe-6 flex flex-col justify-end">
             <div class="grid gap-2 m-4">
-                <div id="message-container" class="text-center border border-gray-400 rounded-lg p-2">{{ $this->message }}</div>
+                <div id="message-container" class="text-center border border-gray-400 rounded-lg p-2">{{ $this->message }}
+                </div>
                 <button class="btn icon-text bg-yellow-500 text-center"><img src="/image/mute.svg" height="20"
                         width="20" class="icon" /> Mute</button>
                 <button class="btn icon-text bg-yellow-500 text-center"><img src="/image/video-off.svg" height="20"
@@ -53,13 +54,22 @@ new class extends Component {
 
     @script
         <script>
+            window.localStream = await navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: true
+            })
+
+            document.getElementById('local-video').srcObject = window.localStream
+
             const setupPeer = async function() {
                 window.peer = new SimplePeer({
                     initiator: false,
+                    stream: window.localStream,
                 })
 
-                window.peer.on('error', err => {
+                window.peer.on('error', async err => {
                     console.log('ERROR ', err)
+                    await $wire.call('changeMessage', 'Disconnected')
                 })
 
                 window.peer.on('signal', async data => {

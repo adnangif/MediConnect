@@ -61,6 +61,7 @@ new class extends Component {
             const setupPeer = async function() {
                 window.peer = new SimplePeer({
                     initiator: true,
+                    stream: window.localStream,
                 })
 
                 window.peer.on('error', err => {
@@ -74,13 +75,15 @@ new class extends Component {
 
                 window.peer.on('connect', async () => {
                     window.peer.send('whatever' + Math.random())
-                    window.peer.addStream(window.localStream)
-                    console.log("added stream")
-
                 })
 
                 window.peer.on('data', data => {
                     console.log('data: ' + data)
+                })
+
+                window.peer.on('stream', stream => {
+                    console.log('found stream')
+                    document.getElementById('remote-video').srcObject = stream
                 })
             }
 
