@@ -33,13 +33,13 @@ Route::middleware([EnsureRoleIsUser::class])->group(function () {
         ->name('get-offer');
     Route::post('/connect/patient/{consultation}/answer', [ConsultationController::class, 'setAnswer'])
         ->name('set-answer');
-    
+
     Route::get('/write-review/{consultation}', [ReviewController::class, 'showReviewForm'])
         ->name('write-review');
-    
+
     Route::post('/write-review/{consultation}', [ReviewController::class, 'handleReviewFormSubmit'])
         ->name('write-review-post');
-    
+
     Route::get('/consultation-ended/{consultation}', [ConsultationController::class, 'consultationEnded'])->name('consultation-ended');
 });
 
@@ -97,7 +97,7 @@ Route::get('/get-search-results', [SearchController::class, 'getSearchResults'])
 
 
 
-Route::get('/doctor/profile/', [doctor_profile::class, 'index']);
+Route::get('/doctor/profile/{doctor}', [DoctorController::class, 'showDoctorProfile']);
 
 
 

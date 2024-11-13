@@ -62,6 +62,8 @@ class DatabaseSeeder extends Seeder
             'specialization' => DoctorSpecializations::CARDIOLOGIST->value,
             'experience' => '5 years',
             'contact' => '0177123456',
+            'fee' => 1000,
+            
         ]);
     }
 }

@@ -134,8 +134,12 @@
 
                 @foreach ($doctors as $doctor)
                     <div class="flex flex-col gap-4">
-                        <img width="200" src="{{ $doctor->image ?? '/image/dummy-person.png' }}"
-                            alt="Doctor Image" />
+                        <a href="/doctor/profile/{{ $doctor->doctor_id }}"class="button">
+                            <img width="200" src="{{ $doctor->image ?? '/image/dummy-person.png' }}"
+                                alt="Doctor Image" />
+                        </a>
+
+
                         <div>
                             <div class="font-bold">{{ $doctor->name }}</div>
                             <div class="text-gray-500">{{ $doctor->qualifications }}</div>

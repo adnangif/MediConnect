@@ -1,40 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor's Profile</title>
-    <link rel="stylesheet" href='/css/doctor_profile_styles.css'>
-</head>
-<body>
-    <div class="profile-container">
-        <div class="profile-header">
-            <img src="/image/doctorPic.jpeg" alt="Doctor's Photo" class="profile-photo">
-            <div class="doctor-info">
-                <h1>Dr. Abir</h1>
-                <h3>Cardiologist</h3>
-                <p class="experience">Experience: 15 years</p>
-                
+<x-layout>
+    <x-slot:styles>
+        <link rel="stylesheet" href='/css/user_profile_styles.css'>
+    </x-slot:styles>
+    <x-navbar />
+    <div class="w-full flex justify-center mt-6">
+        <div class="patient-profile-container">
+            <div class="patient-profile-header">
+                <img src="/image/doctorPic.jpeg" alt="Doctor's Photo" class="patient-photo">
+                <div class="doctor-info">
+                    <div class="text-2xl font-bold">{{ $doctor->name }}</div>
+                    <div class="text-xl font-semibold">{{ $doctor->specialization }}</div>
+                    <p class="experience">Experience: {{ $doctor->experience }}</p>
+                </div>
+            </div>
+
+            <div class="profile-body">
+                <div class="text-2xl font-bold">About Me</div>
+                <p>
+                    {{ $doctor->name }} is a highly skilled {{ $doctor->specialization }} with over
+                    {{ $doctor->experience }} years of experience in treating
+                    patients.
+                    He is dedicated to providing the best care possible and staying updated with the latest advancements
+                    in
+                    the sector of {{ $doctor->specialization }}.
+                </p>
+
+                <div class="text-2xl font-bold">Contact Information</div>
+                <p><strong>Email:</strong> {{ $doctor->user->email }}</p>
+                <p><strong>Phone:</strong> {{ $doctor->contact }}</p>
+
+
+                <h2>Consultation Fees</h2>
+                <p><strong>Fees:</strong> {{ $doctor->fee }} tk only</p>
+
+                <a href="{{ route('appointment-form', $doctor->doctor_id) }}" class="btn mt-4">
+                    Get an appointment</a>
             </div>
         </div>
-        
-        <div class="profile-body">
-            <h2>About Me</h2>
-            <p>
-                Dr. Abir is a highly skilled cardiologist with over 15 years of experience in treating patients with heart conditions.
-                He is dedicated to providing the best care possible and staying updated with the latest advancements in cardiac medicine.
-            </p>
-
-            <h2>Contact Information</h2>
-            <p><strong>Email:</strong> abir@example.com</p>
-            <p><strong>Phone:</strong> +123 456 7890</p>
-
-
-            <h2>Consultation Fees</h2>
-            <p><strong>Fees:</strong> 700 tk only</p>
-
-            <button class="appointment-button">Schedule an Appointment</button>
-        </div>
-    </div>
-</body>
-</html>
+</x-layout>
