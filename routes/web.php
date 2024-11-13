@@ -11,10 +11,9 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Middleware\EnsureRoleIsUserOrDoctor;
+use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-    return view('home_page');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 
 Route::middleware([EnsureRoleIsUser::class])->group(function () {

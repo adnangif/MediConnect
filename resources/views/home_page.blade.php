@@ -95,7 +95,7 @@
                         MediConnect, accessing quality healthcare is just a few clicks away.
                     </p>
                     <div class="btn-container">
-                        <button class='btn'>Register</button>
+                        <a href="/user/register" class='btn'> Register</a>
                     </div>
                 </div>
                 <lottie-player src="/lottie/heart-research.json" style="height: 600px;" background="transparent"
@@ -114,7 +114,8 @@
                         anywhere, expanding your practice and providing convenient, quality healthcare.
                     </p>
                     <div class="btn-container">
-                        <button class='btn'>Register</button>
+                        <a href="/doctor/register" class='btn'> Register</a>
+
                     </div>
                 </div>
                 <div>
@@ -131,76 +132,20 @@
             </div>
             <div class="grid grid-cols-3 gap-8">
 
-                <div class="flex flex-col gap-4">
-                    <img width="200" src="/image/dummy-person.png" />
-                    <div>
-                        <div class="font-bold">Muhammad Abdul Latif</div>
-                        <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist &
-                            Trauma
-                            Surgeon</i>
+                @foreach ($doctors as $doctor)
+                    <div class="flex flex-col gap-4">
+                        <img width="200" src="{{ $doctor->image ?? '/image/dummy-person.png' }}"
+                            alt="Doctor Image" />
+                        <div>
+                            <div class="font-bold">{{ $doctor->name }}</div>
+                            <div class="text-gray-500">{{ $doctor->qualifications }}</div>
+                            <i class="uppercase text-gray-500">{{ $doctor->specialization }}</i>
+                        </div>
+                        <div class="">
+                            <button class='btn'>Book An appointment</button>
+                        </div>
                     </div>
-                    <div class="">
-                        <button class='btn'>Book An appointment</button>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-4">
-                    <img width="200" src="/image/dummy-person.png" />
-                    <div>
-                        <div class="font-bold">Muhammad Abdul Latif</div>
-                        <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist &
-                            Trauma
-                            Surgeon</i>
-                    </div>
-                    <div class="">
-                        <button class='btn'>Book An appointment</button>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-4">
-                    <img width="200" src="/image/dummy-person.png" />
-                    <div>
-                        <div class="font-bold">Muhammad Abdul Latif</div>
-                        <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist &
-                            Trauma
-                            Surgeon</i>
-                    </div>
-                    <div class="">
-                        <button class='btn'>Book An appointment</button>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-4">
-                    <img width="200" src="/image/dummy-person.png" />
-                    <div>
-                        <div class="font-bold">Muhammad Abdul Latif</div>
-                        <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist &
-                            Trauma
-                            Surgeon</i>
-                    </div>
-                    <div class="">
-                        <button class='btn'>Book An appointment</button>
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-4">
-                    <img width="200" src="/image/dummy-person.png" />
-                    <div>
-                        <div class="font-bold">Muhammad Abdul Latif</div>
-                        <div class="text-gray-500">MBBS, BCS (Health), MS (Orthopedic Surgery)</div>
-                        <i class="uppercase text-gray-500">Orthopedic (Bone, Joint, Arthritis, Spine) Specialist &
-                            Trauma
-                            Surgeon</i>
-                    </div>
-                    <div class="">
-                        <button class='btn'>Book An appointment</button>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
 
         </div>
