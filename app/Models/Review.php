@@ -13,6 +13,7 @@ class Review extends Model
         'review',
         'rating',
         'patient_id',
+        'appointment_id',
     ];
     protected $primaryKey = 'review_id';
 }

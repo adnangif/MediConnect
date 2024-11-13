@@ -21,7 +21,8 @@ class ReviewController extends Controller
             'rating' => ['required'],
         ]);
 
-        // dd($validated);
+        $validated['appointment_id'] = $consultation->appointment_id;
+
 
         Auth::user()->patient->reviews()->create($validated);
 
