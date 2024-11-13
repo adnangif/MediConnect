@@ -62,7 +62,7 @@
 
         </button>
 
-        <x-notification_drawer />
+        <livewire:notification_dock />
 
 
         <div>
