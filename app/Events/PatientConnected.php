@@ -19,6 +19,8 @@ class PatientConnected implements ShouldBroadcastNow
     public function __construct($consultation_id)
     {
         $this->consultation_id = $consultation_id;
+
+        
     }
 
     /**
