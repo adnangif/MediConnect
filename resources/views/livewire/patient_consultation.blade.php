@@ -44,7 +44,7 @@ new class extends Component {
                         width="20" class="icon" /> Mute</button>
                 <button class="btn icon-text bg-yellow-500 text-center"><img src="/image/video-off.svg" height="20"
                         width="20" class="icon" /> Turn off Video</button>
-                <a href="{{ route('consultation-ended') }}" class="btn bg-red-500 text-center">Leave</a>
+                <a href="{{ route('consultation-ended', ['consultation_id' => $this->consultation->consultation_id]) }}" class="btn bg-red-500 text-center">Leave</a>
             </div>
             <video id="local-video" class=" bg-gray-600 rounded-lg" autoplay playsinline>
             </video>

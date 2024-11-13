@@ -9,6 +9,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Middleware\EnsureRoleIsDoctor;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ConsultationController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Middleware\EnsureRoleIsUserOrDoctor;
 
 Route::get('/', function () {
@@ -33,6 +34,12 @@ Route::middleware([EnsureRoleIsUser::class])->group(function () {
         ->name('get-offer');
     Route::post('/connect/patient/{consultation}/answer', [ConsultationController::class, 'setAnswer'])
         ->name('set-answer');
+    
+    Route::get('write-review', [ReviewController::class, 'showReviewForm'])
+        ->name('write-review');
+    
+    Route::post('write-review', [ReviewController::class, 'handleReviewFormSubmit'])
+        ->name('write-review-post');
 });
 
 
@@ -52,9 +59,9 @@ Route::get('/consultation-ended', function () {
     return view('consultation_ended_success');
 })->name('consultation-ended');
 
-Route::get('/write-review', function () {
-    return view('write_review');
-})->name('write-review');
+// Route::get('/write-review', function () {
+//     return view('write_review');
+// })->name('write-review');
 
 Route::middleware([EnsureRoleIsDoctor::class])->group(function () {
     Route::get('/connect/doctor/{consultation}', [ConsultationController::class, 'consultationRoom'])

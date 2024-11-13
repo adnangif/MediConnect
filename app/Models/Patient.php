@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Review;
 use App\Models\Appointment;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -18,5 +19,10 @@ class Patient extends Model
     public function appointments(): HasMany
     {
         return $this->hasMany(Appointment::class, 'patient_id');
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class, 'patient_id');
     }
 }
