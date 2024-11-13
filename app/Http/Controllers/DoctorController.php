@@ -8,6 +8,7 @@ use App\Enums\UserTypes;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use App\Models\Doctor;
 
 class DoctorController extends Controller
 {
@@ -15,6 +16,13 @@ class DoctorController extends Controller
     {
         return view('doctor_register', [
             'doctor_specializations' => DoctorSpecializations::toArray()
+        ]);
+    }
+
+    public function showDoctorProfile(Request $request,  Doctor $doctor)
+    {
+        return view('doctor_profile', [
+            'doctor' => $doctor,
         ]);
     }
 
