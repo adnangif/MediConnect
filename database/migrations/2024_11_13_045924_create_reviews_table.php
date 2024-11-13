@@ -21,6 +21,11 @@ return new class extends Migration
                 ->onUpdate('cascade');
             $table->text('review');
             $table->integer('rating');
+            $table->foreignId('appointment_id')
+                ->references('appointment_id')
+                ->on('appointments')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
