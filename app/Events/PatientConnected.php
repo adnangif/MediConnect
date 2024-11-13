@@ -2,6 +2,8 @@
 
 namespace App\Events;
 
+use App\Models\Consultation;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -16,11 +18,11 @@ class PatientConnected implements ShouldBroadcastNow
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $consultation_id;
+    public $consultation;
     public function __construct($consultation_id)
     {
         $this->consultation_id = $consultation_id;
-
-        
+        $this->consultation = Consultation::find($consultation_id);
     }
 
     /**
@@ -32,6 +34,7 @@ class PatientConnected implements ShouldBroadcastNow
     {
         return [
             new Channel("consultation.{$this->consultation_id}"),
+            new Channel("doctor-channel.{$this->consultation->appointment->doctor->doctor_id}"),
         ];
     }
 }

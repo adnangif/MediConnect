@@ -53,7 +53,7 @@
 
         <button class="relative" id="notification-btn">
             {{-- Notification Dot logic give here. Possibly using htmx --}}
-            <span id="notification-dot" class="absolute -right-1 -top-1 flex h-3 w-3">
+            <span id="notification-dot" class="absolute hidden -right-1 -top-1 h-3 w-3">
                 <span
                     class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>

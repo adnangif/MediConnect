@@ -11,6 +11,15 @@ new class extends Component {
         $this->notifications = Auth::user()->notifications()->orderBy('is_read', 'asc')->take(5)->get();
         $this->newNotifications = Auth::user()->notifications()->where('is_read', false)->count();
     }
+
+    public function clear_all()
+    {
+        foreach ($this->notifications as $notification) {
+            Log::debug($notification->notification_id);
+            $notification['is_read'] = true;
+            $notification->save();
+        }
+    }
 }; ?>
 
 <div id="notification-drawer" class="absolute top-[100%] w-64 min-h-96 my-4 rounded-lg shadow bg-slate-100 text-gray-800">
@@ -20,12 +29,10 @@ new class extends Component {
     </div>
     <div class=" flex flex-col gap-1 p-4 pt-0 ">
         @foreach (Auth::user()->notifications()->orderBy('is_read', 'asc')->take(5)->get() as $notification)
-            <a href="#"
+            <a href="{{$notification->link}}"
                 class="p-2 rounded-lg @if (!$notification->is_read) font-bold @endif notification-message hover:bg-slate-200 duration-200">{{ $notification->message }}</a>
         @endforeach
-        @if (Auth::user()->notifications()->count() > 5)
-            <button class="outline-btn">Clear all</button>
-        @endif
+        <button class="outline-btn">Clear all</button>
         @if (Auth::user()->notifications()->count() == 0)
             <div class="text-center mt-20 text-gray-600">
                 <p>No Notifications</p>
@@ -38,11 +45,22 @@ new class extends Component {
             const notificationBtn = document.getElementById('notification-btn');
             const notificationDrawer = document.getElementById('notification-drawer');
             const notificationDot = document.getElementById('notification-dot');
+            const clearAllBtn = document.querySelector('button.outline-btn');
 
-            notificationDot.style.display = 'none'
+            @if ($this->newNotifications > 0)
+                notificationDot.style.display = 'flex';
+            @else
+                notificationDot.style.display = 'none';
+            @endif
+
             function toggleDrawer() {
                 notificationDrawer.classList.toggle('open');
             }
+
+            clearAllBtn.addEventListener('click', async() => {
+                notificationDot.style.display = 'none';
+                await $wire.call('clear_all');
+            })
 
             notificationBtn.addEventListener('click', toggleDrawer)
 
@@ -52,6 +70,11 @@ new class extends Component {
                 }
             })
 
+            Echo.channel("doctor-channel.{{ Auth::user()->doctor->doctor_id }}")
+                .listen('PatientConnected', async (e) => {
+                    notificationDot.style.display = 'flex';
+                    await $wire.$refresh();
+                })
         </script>
     @endscript
 </div>

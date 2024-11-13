@@ -22,3 +22,7 @@ Broadcast::channel('consultation.{consultation_id}', function ($user, $consultat
     }
     return false;
 });
+
+Broadcast::channel('doctor-channel.{doctor_id}', function ($user, $doctor_id) {
+    return (int) $user->doctor->doctor_id === (int) $doctor_id;
+});

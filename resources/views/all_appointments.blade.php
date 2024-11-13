@@ -80,6 +80,7 @@
 
                 @foreach ($appointments as $appointment)
                     <div class="appointment-card">
+                        <p><strong>Appointment ID</strong> <span>{{ $appointment->appointment_id }}</span></p>
                         <p><strong>Doctor</strong> <span>{{ $appointment->doctor->name }}</span></p>
                         <p><strong>Specialization</strong> <span>{{ $appointment->doctor->specialization }}</span></p>
                         <p><strong>Date</strong> <span>{{ date('d F, Y', strtotime($appointment->date)) }}</span></p>
