@@ -142,7 +142,7 @@
                             <i class="uppercase text-gray-500">{{ $doctor->specialization }}</i>
                         </div>
                         <div class="">
-                            <button class='btn'>Book An appointment</button>
+                            <a href="/book-appointment/{{ $doctor->doctor_id }}" class='btn'> Book Appointment</a>
                         </div>
                     </div>
                 @endforeach
