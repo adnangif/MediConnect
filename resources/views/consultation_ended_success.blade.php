@@ -9,15 +9,13 @@
     </x-slot:styles>
     <div class="container mx-auto p-6">
         <section class="p-8 flex flex-col items-center gap-3 text-center">
-            <h1 class="text-2xl font-bold text-emerald-600 mb-4">{{ $title ?? 'Successful' }}</h1>
+            <h1 class="text-2xl font-bold text-emerald-600 mb-4">Consultaion Ended</h1>
             <img width="300" src="/image/success.png" />
             <p class="text-gray-700">
-                @if (session('message'))
-                    <div class="alert alert-success">
-                        {{ session('message') }}
-                    </div>
-                @else
-                    <a class="underline text-blue-600" href="{{ route('all-appointments') }}">See all appointments</a>
+                Thank you for using our services.
+                <br />
+                @if (Auth::user()->isUser())
+                    <a class="text-blue-600 underline" href="{{ route('write-review') }}">write a review</a>
                 @endif
             </p>
         </section>

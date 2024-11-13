@@ -38,15 +38,23 @@ Route::middleware([EnsureRoleIsUser::class])->group(function () {
 
 Route::middleware([EnsureRoleIsUserOrDoctor::class])->group(function () {
     Route::get('/all-appointments/', [AppointmentController::class, 'showAllAppointments'])
-    ->name('all-appointments');
+        ->name('all-appointments');
     Route::delete('appointment/{appointment}', [AppointmentController::class, 'destroy'])
-    ->name('delete-appointment');
+        ->name('delete-appointment');
 });
 
 
 Route::get('/success', function () {
     return view('success');
 })->name('success');
+
+Route::get('/consultation-ended', function () {
+    return view('consultation_ended_success');
+})->name('consultation-ended');
+
+Route::get('/write-review', function () {
+    return view('write_review');
+})->name('write-review');
 
 Route::middleware([EnsureRoleIsDoctor::class])->group(function () {
     Route::get('/connect/doctor/{consultation}', [ConsultationController::class, 'consultationRoom'])
