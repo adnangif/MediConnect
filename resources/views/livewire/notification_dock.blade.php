@@ -35,10 +35,11 @@ new class extends Component {
 
     @script
         <script>
-
             const notificationBtn = document.getElementById('notification-btn');
             const notificationDrawer = document.getElementById('notification-drawer');
+            const notificationDot = document.getElementById('notification-dot');
 
+            notificationDot.style.display = 'none'
             function toggleDrawer() {
                 notificationDrawer.classList.toggle('open');
             }
@@ -50,6 +51,7 @@ new class extends Component {
                     notificationDrawer.classList.remove('open');
                 }
             })
+
         </script>
     @endscript
 </div>
