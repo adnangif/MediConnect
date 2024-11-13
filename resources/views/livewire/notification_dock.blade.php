@@ -8,8 +8,15 @@ new class extends Component {
 
     public function mount()
     {
-        $this->notifications = Auth::user()->notifications()->orderBy('is_read', 'asc')->take(5)->get();
-        $this->newNotifications = Auth::user()->notifications()->where('is_read', false)->count();
+        $this->fetchData();
+    }
+
+    public function fetchData()
+    {
+        $this->notifications = Auth::user()->notifications()
+            ->orderBy('created_at', 'desc')
+            ->orderBy('is_read', 'asc')->take(5)->get();
+        $this->newNotifications = Auth::user()->notifications()->where('is_read', false)->count() > 0;
     }
 
     public function clear_all()
@@ -19,6 +26,7 @@ new class extends Component {
             $notification['is_read'] = true;
             $notification->save();
         }
+        $this->fetchData();
     }
 }; ?>
 
@@ -27,10 +35,12 @@ new class extends Component {
         Notifications
         <img height="20" width="20" src="/image/notification-idle.svg" />
     </div>
-    <div class=" flex flex-col gap-1 p-4 pt-0 ">
-        @foreach (Auth::user()->notifications()->orderBy('is_read', 'asc')->take(5)->get() as $notification)
-            <a href="{{$notification->link}}"
-                class="p-2 rounded-lg @if (!$notification->is_read) font-bold @endif notification-message hover:bg-slate-200 duration-200">{{ $notification->message }}</a>
+    <div class=" flex flex-col gap-1 p-2 pt-0 ">
+        @foreach ($this->notifications as $notification)
+            <a href="{{ $notification->link }}"
+                class="p-2 text-sm rounded-lg @if (!$notification->is_read) font-bold @endif notification-message hover:bg-slate-200 duration-200">{{ $notification->message }}
+                <div class="text-end text-gray-600 text-xs">{{ $notification->created_at->diffForHumans() }}</div>
+            </a>
         @endforeach
         <button class="outline-btn">Clear all</button>
         @if (Auth::user()->notifications()->count() == 0)
@@ -40,6 +50,7 @@ new class extends Component {
         @endif
     </div>
 
+
     @script
         <script>
             const notificationBtn = document.getElementById('notification-btn');
@@ -47,9 +58,11 @@ new class extends Component {
             const notificationDot = document.getElementById('notification-dot');
             const clearAllBtn = document.querySelector('button.outline-btn');
 
-            @if ($this->newNotifications > 0)
+            @if ($this->newNotifications)
+                notificationDot.classList.remove('hidden')
                 notificationDot.style.display = 'flex';
             @else
+                console.log('sdf')
                 notificationDot.style.display = 'none';
             @endif
 
@@ -57,7 +70,7 @@ new class extends Component {
                 notificationDrawer.classList.toggle('open');
             }
 
-            clearAllBtn.addEventListener('click', async() => {
+            clearAllBtn.addEventListener('click', async () => {
                 notificationDot.style.display = 'none';
                 await $wire.call('clear_all');
             })
@@ -74,6 +87,7 @@ new class extends Component {
                 .listen('PatientConnected', async (e) => {
                     notificationDot.style.display = 'flex';
                     await $wire.$refresh();
+                    await $wire.call('fetchData');
                 })
         </script>
     @endscript
