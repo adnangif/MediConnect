@@ -35,11 +35,13 @@ Route::middleware([EnsureRoleIsUser::class])->group(function () {
     Route::post('/connect/patient/{consultation}/answer', [ConsultationController::class, 'setAnswer'])
         ->name('set-answer');
     
-    Route::get('write-review', [ReviewController::class, 'showReviewForm'])
+    Route::get('/write-review/{consultation}', [ReviewController::class, 'showReviewForm'])
         ->name('write-review');
     
-    Route::post('write-review', [ReviewController::class, 'handleReviewFormSubmit'])
+    Route::post('/write-review/{consultation}', [ReviewController::class, 'handleReviewFormSubmit'])
         ->name('write-review-post');
+    
+    Route::get('/consultation-ended/{consultation}', [ConsultationController::class, 'consultationEnded'])->name('consultation-ended');
 });
 
 
@@ -55,13 +57,7 @@ Route::get('/success', function () {
     return view('success');
 })->name('success');
 
-Route::get('/consultation-ended', function () {
-    return view('consultation_ended_success');
-})->name('consultation-ended');
 
-// Route::get('/write-review', function () {
-//     return view('write_review');
-// })->name('write-review');
 
 Route::middleware([EnsureRoleIsDoctor::class])->group(function () {
     Route::get('/connect/doctor/{consultation}', [ConsultationController::class, 'consultationRoom'])

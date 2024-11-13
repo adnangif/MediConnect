@@ -15,7 +15,7 @@
                 Thank you for using our services.
                 <br />
                 @if (Auth::user()->isUser())
-                    <a class="text-blue-600 underline" href="{{ route('write-review') }}">write a review</a>
+                    <a class="text-blue-600 underline" href="{{ route('write-review', $consultation) }}">write a review</a>
                 @endif
             </p>
         </section>

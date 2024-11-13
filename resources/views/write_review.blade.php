@@ -8,20 +8,14 @@
         </style>
     </x-slot:styles>
     <div class="container mx-auto p-6">
-        <form action="{{ route('write-review') }}" method="POST" class="p-8 flex flex-col items-center gap-3 text-center">
+        <form method="POST" class="p-8 flex flex-col items-center gap-3 text-center">
             @csrf
-            @error('review')
-                <div class="alert alert-danger">
-                    {{ $message }}
-                </div>
-                
-            @enderror
             <h1 class="text-2xl font-bold text-emerald-600 mb-4">Write a review</h1>
             <textarea rows="4" class="p-2 w-1/2 resize-none rounded-md border border-gray-500 outline-none"
                 placeholder="write your review here"
                 name="review"
                 ></textarea>
-
+            
             <div id="emoji-picker" class="text-2xl text-gray-600 mt-8">Share Your Experience</div>
             <div class="flex space-x-8 justify-center mt-4">
                 <label class="cursor-pointer text-3xl hover:scale-110 transition-transform duration-150">

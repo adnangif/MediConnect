@@ -6,6 +6,7 @@ use App\Events\AnswerCreated;
 use App\Events\DoctorConnected;
 use App\Events\OfferCreated;
 use App\Events\PatientConnected;
+use App\Models\Appointment;
 use App\Models\Consultation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -63,5 +64,12 @@ class ConsultationController extends Controller
         // $consultation->save();
         AnswerCreated::dispatch($consultation->consultation_id, $request->input('answer'));
         return response("Saved successfully!!");
+    }
+
+    public function consultationEnded(Request $request, Consultation $consultation)
+    {
+        return view("consultation_ended_success", [
+            "consultation" => $consultation
+        ]);
     }
 }
