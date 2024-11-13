@@ -38,9 +38,12 @@ new class extends Component {
         </div>
         <div class="min-w-64 w-1/4 py-6 pe-6 flex flex-col justify-end">
             <div class="grid gap-2 m-4">
-                <div id="message-container" class="text-center border border-gray-400 rounded-lg p-2">{{ $this->message }}</div>
-                <button class="btn icon-text bg-yellow-500 text-center"><img src="/image/mute.svg" height="20" width="20" class="icon" /> Mute</button>
-                <button class="btn icon-text bg-yellow-500 text-center"><img src="/image/video-off.svg" height="20" width="20" class="icon" /> Turn off Video</button>
+                <div id="message-container" class="text-center border border-gray-400 rounded-lg p-2">{{ $this->message }}
+                </div>
+                <button id="mute-btn" class="btn icon-text bg-yellow-500 text-center"><img src="/image/mute.svg" height="20"
+                        width="20" class="icon" /> Mute</button>
+                <button id="video-btn" class="btn icon-text bg-yellow-500 text-center"><img src="/image/video-off.svg" height="20"
+                        width="20" class="icon" /> Turn off Video</button>
                 <a href="{{ route('all-appointments') }}" class="btn bg-red-500 text-center">Leave</a>
             </div>
             <video id="local-video" class=" bg-gray-600 rounded-lg" autoplay playsinline>
@@ -55,7 +58,40 @@ new class extends Component {
                 video: true,
                 audio: true
             })
-            
+
+            document.getElementById('mute-btn').addEventListener('click', async () => {
+                window.localStream.getAudioTracks()[0].enabled = !window.localStream.getAudioTracks()[0].enabled
+
+                if (window.localStream.getAudioTracks()[0].enabled) {
+                    document.getElementById('mute-btn').innerHTML =
+                        '<img src="/image/mute.svg" height="20" width="20" class="icon" /> Mute'
+                    document.getElementById('mute-btn').classList.toggle('bg-red-500')
+                    document.getElementById('mute-btn').classList.toggle('bg-yellow-500')
+
+                } else {
+                    document.getElementById('mute-btn').innerHTML =
+                        '<img src="/image/mute.svg" height="20" width="20" class="icon" /> Unmute'
+                    document.getElementById('mute-btn').classList.toggle('bg-red-500')
+                    document.getElementById('mute-btn').classList.toggle('bg-yellow-500')
+                }
+            })
+
+            document.getElementById('video-btn').addEventListener('click', async () => {
+                window.localStream.getVideoTracks()[0].enabled = !window.localStream.getVideoTracks()[0].enabled;
+
+                if (window.localStream.getVideoTracks()[0].enabled) {
+                    document.getElementById('video-btn').innerHTML =
+                        '<img src="/image/video-off.svg" height="20" width="20" class="icon" /> Turn Off Video';
+                    document.getElementById('video-btn').classList.toggle('bg-red-500');
+                    document.getElementById('video-btn').classList.toggle('bg-yellow-500');
+                } else {
+                    document.getElementById('video-btn').innerHTML =
+                        '<img src="/image/video-off.svg" height="20" width="20" class="icon" /> Start Video';
+                    document.getElementById('video-btn').classList.toggle('bg-red-500');
+                    document.getElementById('video-btn').classList.toggle('bg-yellow-500');
+                }
+            });
+
             document.getElementById('local-video').srcObject = window.localStream
 
             const setupPeer = async function() {
@@ -107,7 +143,6 @@ new class extends Component {
                 })
 
             await $wire.call('doctorConnected')
-
         </script>
     @endscript
 </div>
