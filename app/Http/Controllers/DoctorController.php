@@ -26,6 +26,15 @@ class DoctorController extends Controller
         ]);
     }
 
+    public function showSpecializedDoctorsList(Request $request,  string $specialization)
+    {
+        $doctors = Doctor::getDoctorByNameSpecialization(null, $specialization);
+
+        return view('specialized_doctors_list', [
+            'doctors' => $doctors,
+        ]);
+    }
+
     public function doctorRegister(Request $request)
     {
         $validated = $request->validate([

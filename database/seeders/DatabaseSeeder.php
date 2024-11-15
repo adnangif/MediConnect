@@ -19,16 +19,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()
-            ->count(20)
-            ->create();
+        // User::factory()
+        //     ->count(50)
+        //     ->create();
         
         // Patient::factory()
         //     ->count(5)
         //     ->create();
         
         Doctor::factory()
-            ->count(5)
+            ->count(50)
             ->create();
         
         // Notification::factory()

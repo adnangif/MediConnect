@@ -130,11 +130,12 @@
             <div class="text-container">
                 <div class="title">Recommended Doctors</div>
             </div>
-            <div class="grid grid-cols-3 gap-8">
+            <div class="grid grid-cols-3 gap-10">
 
                 @foreach ($doctors as $doctor)
-                    <div class="flex flex-col gap-4">
-                        <a href="/doctor/profile/{{ $doctor->doctor_id }}"class="button">
+                    <div class="flex flex-col gap-2">
+                        <a
+                            href="/doctor/profile/{{ $doctor->doctor_id }}"class="button max-w-xs transition duration-100 ease-in-out hover:scale-110">
                             <img width="200" src="{{ $doctor->image ?? '/image/dummy-person.png' }}"
                                 alt="Doctor Image" />
                         </a>
@@ -164,12 +165,15 @@
 
             <div class="flex flex-col col-span-1 gap-1 text-gray-600">
                 <div class="font-bold text-gray-950">Specialists</div>
-                <div>Cardiologist</div>
-                <div>Pediatrician</div>
-                <div>Dermatologist</div>
-                <div>Neurologist</div>
-                <div>Orthopedic Surgeon</div>
-                <div>General Physician</div>
+                <a href="{{ route('specialized-doctors-list', 'Cardiologist') }}">Cardiologist</a>
+                <a href="{{ route('specialized-doctors-list', 'Dermatologist') }}">Dermatologist</a>
+                <a href="{{ route('specialized-doctors-list', 'Gynecologist') }}">Gynecologist</a>
+                <a href="{{ route('specialized-doctors-list', 'General Physician') }}">General Physician</a>
+                <a href="{{ route('specialized-doctors-list', 'Neurologist') }}">Neurologist</a>
+                <a href="{{ route('specialized-doctors-list', 'Orthopedist') }}">Orthopedist</a>
+                <a href="{{ route('specialized-doctors-list', 'Pediatrician') }}">Pediatrician</a>
+                <a href="{{ route('specialized-doctors-list', 'Orthopedic Surgeon') }}">Orthopedic Surgeon</a>
+
             </div>
 
             <div class="flex flex-col gap-1 col-span-1">

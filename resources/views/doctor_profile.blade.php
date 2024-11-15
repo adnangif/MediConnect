@@ -29,11 +29,10 @@
                 <p><strong>Email:</strong> {{ $doctor->user->email }}</p>
                 <p><strong>Phone:</strong> {{ $doctor->contact }}</p>
 
-
-                <h2>Consultation Fees</h2>
-                <p><strong>Fees:</strong> {{ $doctor->fee }} tk only</p>
-
-                <a href="{{ route('appointment-form', $doctor->doctor_id) }}" class="btn mt-4">
+                <div class="text-2xl font-bold">Consultation Fees</div>
+                <p><strong>Fees:</strong> {{ $doctor->fee }} tk only </p>
+                <br>
+                <a href="{{ route('appointment-form', $doctor->doctor_id) }}" class="btn">
                     Get an appointment</a>
             </div>
         </div>

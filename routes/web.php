@@ -99,6 +99,12 @@ Route::get('/get-search-results', [SearchController::class, 'getSearchResults'])
 
 Route::get('/doctor/profile/{doctor}', [DoctorController::class, 'showDoctorProfile']);
 
+Route::get('/specialized-doctors-list/{specialization}', [DoctorController::class, 'showSpecializedDoctorsList'])
+    ->name('specialized-doctors-list');
+
+// Route::get('/specialized-doctors-list/cardiologist', function () {
+//     return "Route works!";
+// });
 
 
 Route::get('/admin/doctor-details/', function () {
