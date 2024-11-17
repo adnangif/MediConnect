@@ -12,6 +12,7 @@ use App\Http\Controllers\ConsultationController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Middleware\EnsureRoleIsUserOrDoctor;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PrescriptionController;
 
 Route::get('/', [HomeController::class, 'index']);
 
@@ -106,6 +107,8 @@ Route::get('/specialized-doctors-list/{specialization}', [DoctorController::clas
 //     return "Route works!";
 // });
 
+Route::get('/prescription-write/{consultation}', [PrescriptionController::class, 'showPrescriptionForm'])
+    ->name('prescription-write');
 
 Route::get('/admin/doctor-details/', function () {
     return view('doctor_details');

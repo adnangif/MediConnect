@@ -38,12 +38,16 @@ new class extends Component {
         </div>
         <div class="min-w-64 w-1/4 py-6 pe-6 flex flex-col justify-end">
             <div class="grid gap-2 m-4">
-                <div id="message-container" class="text-center border border-gray-400 rounded-lg p-2">{{ $this->message }}
+                <a href="{{ route('prescription-write', $consultation) }}" target="_blank" class="btn text-center">Write prescription</a>
+            </div>
+            <div class="grid gap-2 m-4">
+                <div id="message-container" class="text-center border border-gray-400 rounded-lg p-2">
+                    {{ $this->message }}
                 </div>
-                <button id="mute-btn" class="btn icon-text bg-yellow-500 text-center"><img src="/image/mute.svg" height="20"
-                        width="20" class="icon" /> Mute</button>
-                <button id="video-btn" class="btn icon-text bg-yellow-500 text-center"><img src="/image/video-off.svg" height="20"
-                        width="20" class="icon" /> Turn off Video</button>
+                <button id="mute-btn" class="btn icon-text bg-yellow-500 text-center"><img src="/image/mute.svg"
+                        height="20" width="20" class="icon" /> Mute</button>
+                <button id="video-btn" class="btn icon-text bg-yellow-500 text-center"><img src="/image/video-off.svg"
+                        height="20" width="20" class="icon" /> Turn off Video</button>
                 <a href="{{ route('all-appointments') }}" class="btn bg-red-500 text-center">Leave</a>
             </div>
             <video id="local-video" class=" bg-gray-600 rounded-lg" autoplay playsinline>

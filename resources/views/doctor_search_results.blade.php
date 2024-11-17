@@ -12,8 +12,8 @@
             <div class="text-start grow">
                 <div class="font-semibold text-lg">Dr. {{ $doctor->name }}</div>
                 <div class=" text-gray-500">{{ $doctor->specialization }} Specialist </div>
-                <div class="text-gray-500">Specializing in Joint Replacement & Sports Injuries</div>
-                <div class="text-gray-500 italic">Contact@gmail.com</div>
+                <div class="text-gray-500">{{ $doctor->experience }} years of experience in {{ $doctor->specialization }}</div>
+                <div class="text-gray-500 italic">{{ $doctor->user->email }}</div>
             </div>
             @if (Auth::check() && Auth::user()->isUser())
                 <div class="flex flex-col justify-end">
