@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $doctor->id,
             'name' => "Jane Alice",
             'specialization' => DoctorSpecializations::CARDIOLOGIST->value,
-            'experience' => '5 years',
+            'experience' => 5,
             'contact' => '0177123456',
             'fee' => 1000,
             

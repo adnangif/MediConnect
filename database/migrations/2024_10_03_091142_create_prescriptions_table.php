@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id('prescription_id');
             $table->string('test_needed');
-            $table->string('medicines');
+            // $table->string('medicines');
             $table->foreignId('patient_id')
                 ->references('patient_id')->on('patients')
                 ->onDelete('cascade')

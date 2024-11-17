@@ -19,7 +19,7 @@ class DoctorFactory extends Factory
 
         return [
             'user_id' => $user->id,
-            'name' => $this->faker->name,             // Generate a random name for the doctor
+            'name' => $this->faker->name,            
             'specialization' => $this->faker->randomElement(DoctorSpecializations::toArray()),
             'experience' => $this->faker->numberBetween(1,15),
             'contact' => $this->faker->phoneNumber(),
