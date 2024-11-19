@@ -35,7 +35,7 @@
 
         </button>
 
-        <x-notification_drawer />
+        <livewire:notification_dock_patient />
 
 
         <div>
