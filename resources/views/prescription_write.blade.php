@@ -1,56 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Write Prescription</title>
-    <link rel="stylesheet" href={{asset('css/global_styles.css')}} />
-    @vite('resources/css/app.css')
-</head>
-<body>
+<x-layout>
     <x-navbar />
 
-    <div class="bg-gray-100 m-24 grid gap-6 p-12 rounded-md">
+    <form method="POST" class="bg-gray-100 m-24 grid gap-6 p-12 rounded-md">
+        @csrf
         <div class="text-3xl flex ">
             Write Prescription
         </div>
-        <div class="flex w-full">
-            <div class="grow">Medicine 1</div>
-            <textarea rows="6" class="grow resize-none rounded-md"></textarea>
+        <div id="medicine-fields" class="grid gap-4">
+            <div class="flex w-full">
+                <textarea name="rx" placeholder="Rx" rows="6" class="grow resize-none rounded-md">{{$prescription->rx}}</textarea>
+            </div>
+
+            @foreach ( $medicines as $medicine)
+            <div class="flex w-full">
+                <textarea name="medicines[]" placeholder="Medicine" rows="6" class="grow resize-none rounded-md">{{ $medicine->medicine_text }}</textarea>
+            </div>
+            @endforeach
         </div>
 
-        <div class="flex w-full">
-            <div class="grow">Medicine 1</div>
-            <textarea rows="6" class="grow resize-none rounded-md"></textarea>
+        <div class="flex gap-4 justify-end">
+            <button type="button" id="add-medicines-btn" class="outline-btn"> + ADD Medicine</button>
+            <button type="submit" id="add-medicines-btn" class="btn">Save</button>
         </div>
 
-        <div class="flex w-full">
-            <div class="grow">Medicine 1</div>
-            <textarea rows="6" class="grow resize-none rounded-md"></textarea>
-        </div>
 
-        <div class="flex justify-end">
-            <button class="btn"> + ADD another Medicine</button>
-        </div>
 
-        <div class="flex w-full">
-            <div class="grow">Test 1</div>
-            <textarea rows="6" class="grow resize-none rounded-md"></textarea>
-        </div>
+    </form>
 
-        <div class="flex w-full">
-            <div class="grow">Test 2</div>
-            <textarea rows="6" class="grow resize-none rounded-md"></textarea>
-        </div>
-
-        <div class="flex justify-end">
-            <button class="btn"> + ADD another Test</button>
-        </div>
-
-        <div class="flex justify-center">
-            <button class="btn">save Prescription</button>
-        </div>
-    </div>
-</body>
-</html>
+    <script>
+        document.getElementById('add-medicines-btn').addEventListener('click', () => {
+            const med_field = document.createElement('div')
+            med_field.classList.add('flex', 'w-full')
+            med_field.innerHTML = `<textarea name="medicines[]" placeholder="Medicine" rows="6" class="grow resize-none rounded-md"></textarea>`
+            document.getElementById('medicine-fields').appendChild(med_field)
+        })
+    </script>
+</x-layout>

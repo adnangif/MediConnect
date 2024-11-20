@@ -15,11 +15,34 @@ class PrescriptionController extends Controller
 {
     public function showPrescriptionForm(Request $request,  Consultation $consultation)
     {
+        $appointment = $consultation->appointment;
         return view('prescription_write', [
-            'consultation' => $consultation,
+            'appointment' => $appointment,
+            'medicines' => $appointment->prescription->medicines,
+            'prescription' => $appointment->prescription
         ]);
     }
 
-  
+    public function handlePrescriptionFormSubmit(Request $request, Consultation $consultation)
+    {
+        $appointment = $consultation->appointment;
+        $prescription = $consultation->appointment->prescription;
+
+        $validated = $request->validate([
+            'rx' => ['required'],
+            'medicines' => ['required'],
+        ]);
+        Log::debug($validated);
+
+        $prescription->rx = $validated['rx'];
+        $prescription->save();
+
+        $prescription->save_medicines($validated['medicines']);
+
+        return redirect()->back();
+    }   
+
+
+
 
 }

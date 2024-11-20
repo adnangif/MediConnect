@@ -14,9 +14,8 @@ class Medicine extends Model
     protected $primaryKey = 'medicine_id';
 
     protected $fillable = [
-        'medicine_name',
-        'message',
         'prescription_id',
+        'medicine_text'
     ];
 
     public function prescription(): BelongsTo

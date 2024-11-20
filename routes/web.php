@@ -88,10 +88,6 @@ Route::get("/prescription-details", function () {
     return view('prescription_details');
 });
 
-Route::get('/prescription-write', function () {
-    return view('prescription_write');
-});
-
 Route::get('/search', SearchController::class);
 Route::get('/get-search-results', [SearchController::class, 'getSearchResults'])
     ->name('searchResults');
@@ -109,6 +105,9 @@ Route::get('/specialized-doctors-list/{specialization}', [DoctorController::clas
 
 Route::get('/prescription-write/{consultation}', [PrescriptionController::class, 'showPrescriptionForm'])
     ->name('prescription-write');
+
+Route::post('/prescription-write/{consultation}', [PrescriptionController::class, 'handlePrescriptionFormSubmit'])
+    ->name('prescription-write-post');
 
 Route::get('/admin/doctor-details/', function () {
     return view('doctor_details');

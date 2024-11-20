@@ -18,8 +18,7 @@ return new class extends Migration
                 ->on('prescriptions')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->string('medicine_name');
-            $table->text('message');
+            $table->string('medicine_text');
             $table->timestamps();
         });
     }

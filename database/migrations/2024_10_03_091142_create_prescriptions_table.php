@@ -13,16 +13,11 @@ return new class extends Migration
     {
         Schema::create('prescriptions', function (Blueprint $table) {
             $table->id('prescription_id');
-            $table->string('test_needed');
-            // $table->string('medicines');
-            $table->foreignId('patient_id')
-                ->references('patient_id')->on('patients')
+            $table->foreignId('appointment_id')
+                ->references('appointment_id')->on('appointments')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->foreignId('doctor_id')
-                ->references('doctor_id')->on('doctors')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
+            $table->text('rx')->nullable();
             $table->timestamps();
         });
     }

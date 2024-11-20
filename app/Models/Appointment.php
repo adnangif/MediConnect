@@ -35,12 +35,21 @@ class Appointment extends Model
         return $this->hasOne(Consultation::class, 'consultation_id');
     }
 
+    public function prescription(): HasOne
+    {
+        return $this->hasOne(Prescription::class, 'prescription_id');
+    }
+
     public static function createAppointment(array $validated)
     {
         try {
             DB::beginTransaction();
             $appointment = Appointment::create($validated);
             $consultation = Consultation::create([
+                'appointment_id' => $appointment->appointment_id
+            ]);
+
+            $prescription = Prescription::create([
                 'appointment_id' => $appointment->appointment_id
             ]);
 
