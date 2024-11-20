@@ -42,6 +42,8 @@ Route::middleware([EnsureRoleIsUser::class])->group(function () {
         ->name('write-review-post');
 
     Route::get('/consultation-ended/{consultation}', [ConsultationController::class, 'consultationEnded'])->name('consultation-ended');
+    Route::get("/prescription-details{appointment}", [PrescriptionController::class, "showPrescriptionDetails"])->name("prescription-details");
+    
 });
 
 
@@ -89,9 +91,6 @@ Route::post('/doctor/register', [DoctorController::class, 'doctorRegister']);
 
 
 
-Route::get("/prescription-details", function () {
-    return view('prescription_details');
-});
 
 Route::get('/search', SearchController::class);
 Route::get('/get-search-results', [SearchController::class, 'getSearchResults'])

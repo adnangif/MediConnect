@@ -20,58 +20,38 @@
             <!-- Doctor's Information -->
             <div class="details-section">
                 <h3>Doctor's Information</h3>
-                <p><strong>Name:</strong> Dr. Sarah Lee</p>
-                <p><strong>Specialization:</strong> Cardiologist</p>
-                <p><strong>Contact:</strong> +1 555-123-4567</p>
-                <p><strong>Email:</strong> sarah.lee@mediconnect.com</p>
+                <p><strong>Name:</strong> {{ $doctor->name }}</p>
+                <p><strong>Specialization:</strong> {{$doctor->specialization}}</p>
+                <p><strong>Email:</strong> {{$doctor->user->email}}</p>
             </div>
 
             <!-- Patient's Information -->
             <div class="details-section">
                 <h3>Patient's Information</h3>
-                <p><strong>Name:</strong> John Doe</p>
-                <p><strong>Age:</strong> 45</p>
-                <p><strong>Gender:</strong> Male</p>
-                <p><strong>Contact:</strong> +1 555-987-6543</p>
-                <p><strong>Email:</strong> john.doe@gmail.com</p>
+                <p><strong>Name:</strong>{{$patient->name}}</p>
+                <p><strong>Age:</strong> {{$patient->age}}</p>
+                <p><strong>Gender:</strong> {{$patient->gender}}</p>
+                <p><strong>Email:</strong> {{$patient->user->email}}</p>
             </div>
 
-            <!-- Consultation Information -->
-            <div class="details-section">
-                <h3>Consultation Information</h3>
-                <p><strong>Date:</strong> September 10, 2024</p>
-                <p><strong>Time:</strong> 3:00 PM</p>
-                <p><strong>Problem Description:</strong> Chest pain, shortness of breath, and high blood pressure</p>
-            </div>
+
 
             <!-- Medication Information -->
             <div class="details-section">
                 <h3>Medication</h3>
                 <ul>
-                    <li><strong>Medicine 1:</strong> Aspirin 100 mg, once daily</li>
-                    <li><strong>Medicine 2:</strong> Lisinopril 10 mg, once daily</li>
-                    <li><strong>Medicine 3:</strong> Atorvastatin 20 mg, once daily</li>
+                    @foreach ($medicines as $medicine)  
+                        <li><strong>Medicine {{ $loop->iteration }}:</strong> {{ $medicine->medicine_text }}</li>
+                    @endforeach
                 </ul>
             </div>
 
             <!-- Doctor's Suggestions -->
             <div class="details-section">
                 <h3>Doctor's Suggestions</h3>
-                <p>Maintain a low-sodium diet and engage in regular exercise. Monitor blood pressure at home, and avoid stress and smoking.</p>
+                <p>{{$prescription->rx}}</p>
             </div>
 
-            <!-- Referral Information -->
-            <div class="details-section">
-                <h3>Referral (if any)</h3>
-                <p>Referred to Dr. John Smith for further cardiovascular examination.</p>
-            </div>
-
-            <!-- Next Visit Information -->
-            <div class="details-section">
-                <h3>Next Visit</h3>
-                <p><strong>Date:</strong> September 30, 2024</p>
-                <p><strong>Time:</strong> 10:00 AM</p>
-            </div>
         </div>
     </div>
 </body>

@@ -42,6 +42,17 @@ class PrescriptionController extends Controller
         return redirect()->back();
     }   
 
+    public function showPrescriptionDetails(Request $request, Appointment $appointment)
+    {
+        return view('prescription_details', [
+            'appointment' => $appointment,
+            'doctor' => $appointment->doctor,
+            'prescription' => $appointment->prescription,
+            'patient' => $appointment->patient,
+            'medicines' => $appointment->prescription->medicines,
+        ]);
+    }
+
 
 
 
