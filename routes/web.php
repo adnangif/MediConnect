@@ -67,6 +67,11 @@ Route::middleware([EnsureRoleIsDoctor::class])->group(function () {
         ->name('set-offer');
     Route::get('/connect/doctor/{consultation}/answer', [ConsultationController::class, 'getAnswer'])
         ->name('get-answer');
+    Route::get('/prescription-write/{consultation}', [PrescriptionController::class, 'showPrescriptionForm'])
+        ->name('prescription-write');
+    
+    Route::post('/prescription-write/{consultation}', [PrescriptionController::class, 'handlePrescriptionFormSubmit'])
+        ->name('prescription-write-post');
 });
 
 
@@ -103,11 +108,7 @@ Route::get('/specialized-doctors-list/{specialization}', [DoctorController::clas
 //     return "Route works!";
 // });
 
-Route::get('/prescription-write/{consultation}', [PrescriptionController::class, 'showPrescriptionForm'])
-    ->name('prescription-write');
 
-Route::post('/prescription-write/{consultation}', [PrescriptionController::class, 'handlePrescriptionFormSubmit'])
-    ->name('prescription-write-post');
 
 Route::get('/admin/doctor-details/', function () {
     return view('doctor_details');
