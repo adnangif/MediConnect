@@ -86,7 +86,7 @@
                         <p><strong>Date</strong> <span>{{ date('d F, Y', strtotime($appointment->date)) }}</span></p>
                         <p><strong>Time</strong> <span>{{date('h : i  A',strtotime($appointment->time))}}</span></p>
                         <p><strong>Consultation Mode</strong> <span>MediConnect Session</span></p>
-                        <p><strong>Status</strong> <span class="status pending">Pending</span></p>
+                        <p><strong>Status</strong> <span class="status pending">{{$appointment->status}}</span></p>
                         <p><strong>Estimated Duration</strong> <span>30 minutes</span></p>
                         <p><strong>Prescription</strong> <span><a class="outline-btn" href="{{ route('prescription-details', $appointment) }}">View</a></span></p>
                         <div class="actions  justify-end gap-4 pt-4 grid grid-cols-2">

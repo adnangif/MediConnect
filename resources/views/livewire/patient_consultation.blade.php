@@ -4,6 +4,7 @@ use Livewire\Volt\Component;
 use App\Events\AnswerCreated;
 use App\Events\PatientConnected;
 use Illuminate\Support\Facades\Log;
+use App\Enums\AppointmentStatusTypes;
 
 new class extends Component {
     public $consultation;
@@ -31,6 +32,14 @@ new class extends Component {
     {
         $this->message = $message;
     }
+
+    public function patientLeave()
+    {
+        Log::debug('Patient left: ' . $this->consultation->consultation_id);
+        $this->consultation->appointment->status = AppointmentStatusTypes::FINISHED->value;
+        $this->consultation->appointment->save();
+        Log::debug($this->consultation->appointment->status);
+    }
 }; ?>
 
 <div class="h-full">
@@ -47,7 +56,7 @@ new class extends Component {
                         height="20" width="20" class="icon" /> Mute</button>
                 <button id="video-btn" class="btn icon-text bg-yellow-500 text-center"><img src="/image/video-off.svg" height="20"
                         width="20" class="icon" /> Turn off Video</button>
-                <a href="{{ route('consultation-ended', $consultation) }}" class="btn bg-red-500 text-center">Leave</a>
+                <a wire:click="patientLeave" href="{{ route('consultation-ended', $consultation) }}" class="btn bg-red-500 text-center">Leave</a>
             </div>
             <video id="local-video" class=" bg-gray-600 rounded-lg" autoplay playsinline>
             </video>
