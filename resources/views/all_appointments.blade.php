@@ -118,23 +118,35 @@
                                     Completed</button>
                             @endif
 
-                            @if ((Auth::user()->isUser() || Auth::user()->isDoctor()) && $appointment->time && $appointment->status == 'pending')
-                                @php
-                                    date_default_timezone_set('Asia/Dhaka');
+                            @php
+                                date_default_timezone_set('Asia/Dhaka');
 
-                                    $appointmentTime = \Illuminate\Support\Carbon::createFromFormat(
-                                        'H:i:s',
-                                        $appointment->time,
-                                    );
-                                @endphp
+                                $appointmentTime = \Illuminate\Support\Carbon::createFromFormat(
+                                    'H:i:s',
+                                    $appointment->time,
+                                );
+                            @endphp
 
-                                @if ($appointmentTime->between(now()->subMinutes(30), now()->addMinutes(30)))
+                            @if (1)
+                                @if (Auth::user()->isUser() &&
+                                        $appointmentTime->between(now()->subMinutes(30), now()->addMinutes(30)) &&
+                                        $appointment->status == 'pending')
                                     <a href="{{ route('waiting-room', $appointment->consultation) }}"
-                                        class="col-span-2 btn icon-text bg-blue-200 text-blue-950">
-                                        Join Now
+                                        class="col-span-2 btn icon-text bg-blue-200 text-blue-950">Join Now
                                         <img width="20" src="/image/new-tab.svg" />
                                     </a>
-                                @else
+                                @endif
+
+                                @if (Auth::user()->isDoctor() &&
+                                        $appointmentTime->between(now()->subMinutes(30), now()->addMinutes(30)) &&
+                                        $appointment->status == 'pending')
+                                    <a href="{{ route('consultation-room', $appointment->consultation) }}"
+                                        class="col-span-2 btn icon-text bg-blue-200 text-blue-950">Join Now
+                                        <img width="20" src="/image/new-tab.svg" />
+                                    </a>
+                                @endif
+                            @else
+                                @if ($appointment->status == 'pending')
                                     <button class="col-span-2 btn bg-gray-300 cursor-not-allowed text-emerald-950">Join
                                         at
                                         {{ \Illuminate\Support\Carbon::createFromFormat('H:i:s', $appointment->time)->format('h:i A') }}
