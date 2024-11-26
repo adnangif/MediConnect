@@ -59,15 +59,15 @@
             }
 
             .status.pending {
-                color: #e65100;
+                color: #3600e6;
             }
 
             .status.completed {
-                background-color: #1b5e20;
+                color: #1b5e20;
             }
 
-            .status.canceled {
-                background-color: #c62828;
+            .status.cancelled {
+                color: #c62828;
             }
         </style>
     </x-slot:styles>
@@ -84,11 +84,12 @@
                         <p><strong>Doctor</strong> <span>{{ $appointment->doctor->name }}</span></p>
                         <p><strong>Specialization</strong> <span>{{ $appointment->doctor->specialization }}</span></p>
                         <p><strong>Date</strong> <span>{{ date('d F, Y', strtotime($appointment->date)) }}</span></p>
-                        <p><strong>Time</strong> <span>{{date('h : i  A',strtotime($appointment->time))}}</span></p>
+                        <p><strong>Time</strong> <span>{{ date('h : i  A', strtotime($appointment->time)) }}</span></p>
                         <p><strong>Consultation Mode</strong> <span>MediConnect Session</span></p>
-                        <p><strong>Status</strong> <span class="status pending">{{$appointment->status}}</span></p>
+                        <p><strong>Status</strong> <span class="status pending">{{ $appointment->status }}</span></p>
                         <p><strong>Estimated Duration</strong> <span>30 minutes</span></p>
-                        <p><strong>Prescription</strong> <span><a class="outline-btn" href="{{ route('prescription-details', $appointment) }}">View</a></span></p>
+                        <p><strong>Prescription</strong> <span><a class="outline-btn"
+                                    href="{{ route('prescription-details', $appointment) }}">View</a></span></p>
                         <div class="actions  justify-end gap-4 pt-4 grid grid-cols-2">
                             @if (Auth::user()->isUser())
                                 <a href="{{ route('update-appointment', $appointment) }}"
@@ -111,12 +112,25 @@
                             </form>
 
                             @if (1)
-                                @if (Auth::user()->isUser())
-                                    <a href="{{ route('waiting-room', $appointment->consultation) }}"
-                                        class="col-span-2 btn icon-text bg-blue-200 text-blue-950">Join Now
-                                        <img width="20" src="/image/new-tab.svg" />
-                                    </a>
+                                @if (Auth::user()->isUser() && $appointment->time)
+                                    @php
+                                        date_default_timezone_set('Asia/Dhaka');
+
+                                        $appointmentTime = \Illuminate\Support\Carbon::createFromFormat(
+                                            'H:i:s',
+                                            $appointment->time,
+                                        );
+                                    @endphp
+
+                                    @if ($appointmentTime->between(now()->subMinutes(30), now()->addMinutes(30)))
+                                        <a href="{{ route('waiting-room', $appointment->consultation) }}"
+                                            class="col-span-2 btn icon-text bg-blue-200 text-blue-950">
+                                            Join Now
+                                            <img width="20" src="/image/new-tab.svg" />
+                                        </a>
+                                    @endif
                                 @endif
+
 
                                 @if (Auth::user()->isDoctor())
                                     <a href="{{ route('consultation-room', $appointment->consultation) }}"
