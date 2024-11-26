@@ -117,36 +117,29 @@
                                 <button class="btn bg-gray-300 cursor-not-allowed text-gray-500">Appointment
                                     Completed</button>
                             @endif
-                            @if (1)
-                                @if (Auth::user()->isUser() && $appointment->time)
-                                    @php
-                                        date_default_timezone_set('Asia/Dhaka');
 
-                                        $appointmentTime = \Illuminate\Support\Carbon::createFromFormat(
-                                            'H:i:s',
-                                            $appointment->time,
-                                        );
-                                    @endphp
+                            @if ((Auth::user()->isUser() || Auth::user()->isDoctor()) && $appointment->time && $appointment->status == 'pending')
+                                @php
+                                    date_default_timezone_set('Asia/Dhaka');
 
-                                    @if ($appointmentTime->between(now()->subMinutes(30), now()->addMinutes(30)))
-                                        <a href="{{ route('waiting-room', $appointment->consultation) }}"
-                                            class="col-span-2 btn icon-text bg-blue-200 text-blue-950">
-                                            Join Now
-                                            <img width="20" src="/image/new-tab.svg" />
-                                        </a>
-                                    @endif
-                                @endif
+                                    $appointmentTime = \Illuminate\Support\Carbon::createFromFormat(
+                                        'H:i:s',
+                                        $appointment->time,
+                                    );
+                                @endphp
 
-
-                                @if (Auth::user()->isDoctor())
-                                    <a href="{{ route('consultation-room', $appointment->consultation) }}"
-                                        class="col-span-2 btn icon-text bg-blue-200 text-blue-950">Join Now
+                                @if ($appointmentTime->between(now()->subMinutes(30), now()->addMinutes(30)))
+                                    <a href="{{ route('waiting-room', $appointment->consultation) }}"
+                                        class="col-span-2 btn icon-text bg-blue-200 text-blue-950">
+                                        Join Now
                                         <img width="20" src="/image/new-tab.svg" />
                                     </a>
+                                @else
+                                    <button class="col-span-2 btn bg-gray-300 cursor-not-allowed text-emerald-950">Join
+                                        at
+                                        {{ \Illuminate\Support\Carbon::createFromFormat('H:i:s', $appointment->time)->format('h:i A') }}
+                                    </button>
                                 @endif
-                            @else
-                                <button class="col-span-2 btn bg-gray-300 cursor-not-allowed text-emerald-950">Join at
-                                    10:00 AM</button>
                             @endif
                         </div>
 
