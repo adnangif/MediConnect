@@ -9,9 +9,11 @@
 
             <form class="appointment-form" method="POST">
                 @csrf
-                <div class="form-group">
+                <div class="form-group1">
                     <label for="date">Preferred Date</label>
                     <input class="p-2" type="date" id="date" name="date" required>
+                    <input class="p-2" type="time" id="time" name="time" required>
+
                 </div>
 
                 <div class="form-group">
@@ -29,5 +31,6 @@
     <script>
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('date').value = today;
+        document.getElementById('time').value= '10:00'
     </script>
 </x-layout>

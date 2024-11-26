@@ -18,6 +18,7 @@ class Appointment extends Model
         'patient_id',
         'message',
         'date',
+        'time',
     ];
 
     public function doctor(): BelongsTo

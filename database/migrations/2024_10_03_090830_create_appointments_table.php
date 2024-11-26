@@ -26,7 +26,7 @@ return new class extends Migration
             $table->date('date');
             $table->enum('status', AppointmentStatusTypes::toArray())
                 ->default(AppointmentStatusTypes::PENDING);
-            $table->time('time')->nullable();
+            $table->time('time');
             $table->integer('duration')->default(30 * 60);
             $table->timestamps();
         });

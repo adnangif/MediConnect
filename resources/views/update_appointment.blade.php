@@ -10,10 +10,13 @@
 
             <form class="appointment-form" method="POST">
                 @csrf
-                <div class="form-group">
+                <div class="form-group1">
                     <label for="date">Preferred Date</label>
                     <input value="{{ $appointment->date }}" class="p-2" type="date" id="date" name="date"
                         required>
+
+                    <input value="{{ $appointment->time }}" class="p-2" type="time" id="time" name="time" required>
+                        
                 </div>
 
                 <div class="form-group">

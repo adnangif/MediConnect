@@ -23,6 +23,7 @@ class AppointmentController extends Controller
     {
         $validated = $request->validate([
             'date' => ['required', 'date'],
+            'time' => ['required', 'date_format:H:i'],
             'message' => ['required'],
         ]);
 
@@ -59,22 +60,22 @@ class AppointmentController extends Controller
         ]);
     }
 
-    public function handleAppointmentUpdateForm(Request $request, Appointment $appointment){
+    public function handleAppointmentUpdateForm(Request $request, Appointment $appointment)
+    {
 
         $validated = $request->validate([
             'date' => ['required', 'date'],
+            'time' => ['required', 'date_format:H:i'],
             'message' => ['required'],
         ]);
 
         $appointment->date = $validated['date'];
+        $appointment->time = $validated['time'];
         $appointment->message = $validated['message'];
         $appointment->save();
 
         return redirect()->route('success')
-                        ->with('message', 'Thank you For Your request. Appointment Reshedule Request has been made;');
-
-
-
+            ->with('message', 'Thank you For Your request. Appointment Reshedule Request has been made;');
     }
 
     public function destroy(Appointment $appointment)

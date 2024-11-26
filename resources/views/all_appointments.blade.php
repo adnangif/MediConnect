@@ -84,7 +84,7 @@
                         <p><strong>Doctor</strong> <span>{{ $appointment->doctor->name }}</span></p>
                         <p><strong>Specialization</strong> <span>{{ $appointment->doctor->specialization }}</span></p>
                         <p><strong>Date</strong> <span>{{ date('d F, Y', strtotime($appointment->date)) }}</span></p>
-                        <p><strong>Time</strong> <span>10:00 AM</span></p>
+                        <p><strong>Time</strong> <span>{{date('h : i  A',strtotime($appointment->time))}}</span></p>
                         <p><strong>Consultation Mode</strong> <span>MediConnect Session</span></p>
                         <p><strong>Status</strong> <span class="status pending">Pending</span></p>
                         <p><strong>Estimated Duration</strong> <span>30 minutes</span></p>
