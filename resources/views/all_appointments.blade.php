@@ -88,10 +88,12 @@
                         <p><strong>Consultation Mode</strong> <span>MediConnect Session</span></p>
                         <p><strong>Status</strong> <span class="status pending">{{ $appointment->status }}</span></p>
                         <p><strong>Estimated Duration</strong> <span>30 minutes</span></p>
-                        <p><strong>Prescription</strong> <span><a class="outline-btn"
-                                    href="{{ route('prescription-details', $appointment) }}">View</a></span></p>
+                        @if ($appointment->status == 'finished')
+                            <p><strong>Prescription</strong> <span><a class="outline-btn"
+                                        href="{{ route('prescription-details', $appointment) }}">View</a></span></p>
+                        @endif
                         <div class="actions  justify-end gap-4 pt-4 grid grid-cols-2">
-                            @if (Auth::user()->isUser())
+                            @if (Auth::user()->isUser() && $appointment->status == 'pending')
                                 <a href="{{ route('update-appointment', $appointment) }}"
                                     class="btn icon-text col-span-1 bg-emerald-200 text-emerald-950">
                                     <img width="24" src="/image/redo.svg" />
@@ -101,16 +103,20 @@
                                 <button class="btn bg-gray-300 cursor-not-allowed text-gray-500">Reschedule
                                     Unavailable</button>
                             @endif
-                            <form action="{{ route('delete-appointment', $appointment) }}" method="POST"
-                                onsubmit="return confirm('Are you sure you want to cancel this appointment?')"
-                                class="col-span-1">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn icon-text bg-red-200 text-red-950" type="submit">
-                                    <img width="24" src="/image/cancel.svg" />
-                                    Cancel appointment</button>
-                            </form>
-
+                            @if ($appointment->status == 'pending')
+                                <form action="{{ route('delete-appointment', $appointment) }}" method="POST"
+                                    onsubmit="return confirm('Are you sure you want to cancel this appointment?')"
+                                    class="col-span-1">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn icon-text bg-red-200 text-red-950" type="submit">
+                                        <img width="24" src="/image/cancel.svg" />
+                                        Cancel appointment</button>
+                                </form>
+                            @else
+                                <button class="btn bg-gray-300 cursor-not-allowed text-gray-500">Appointment
+                                    Completed</button>
+                            @endif
                             @if (1)
                                 @if (Auth::user()->isUser() && $appointment->time)
                                     @php
