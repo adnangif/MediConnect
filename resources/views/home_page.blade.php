@@ -146,9 +146,15 @@
                             <div class="text-gray-500">{{ $doctor->qualifications }}</div>
                             <i class="uppercase text-gray-500">{{ $doctor->specialization }}</i>
                         </div>
+                        @if (Auth::check() && Auth::user()->isUser())
                         <div class="">
                             <a href="/book-appointment/{{ $doctor->doctor_id }}" class='btn'> Book Appointment</a>
                         </div>
+                        @else
+                        <div class="">
+                            <button disabled class="btn bg-gray-400 cursor-not-allowed">Login Required</button>
+                        </div>
+                        @endif
                     </div>
                 @endforeach
             </div>
