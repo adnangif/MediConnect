@@ -152,7 +152,7 @@
                         </div>
                         @else
                         <div class="">
-                            <button disabled class="btn bg-gray-400 cursor-not-allowed">Login Required</button>
+                            <button disabled class="btn bg-gray-400 cursor-not-allowed align-text-top">user required</button>
                         </div>
                         @endif
                     </div>

@@ -14,9 +14,11 @@
         @foreach ($doctors as $doctor)
             <div class="w-full flex gap-4 p-4 shadow-md rounded-[0.5rem] relative border">
                 <div class="w-24 h-24 bg-gray-200">
-                    <img width="200" margin="auto" src="{{ $doctor->image ?? '/image/dummy-person.png' }}"
-                        alt="Doctor Image" />
-
+                    <a
+                            href="/doctor/profile/{{ $doctor->doctor_id }}"class="button max-w-xs transition duration-100 ease-in-out hover:scale-110">
+                            <img width="200" src="{{ $doctor->image ?? '/image/dummy-person.png' }}"
+                                alt="Doctor Image" />
+                        </a>
                 </div>
                 <div class="text-start grow">
                     <div class="font-semibold text-lg">Dr. {{ $doctor->name }}</div>
@@ -30,12 +32,10 @@
                         <a href="{{ route('appointment-form', $doctor->doctor_id) }}" class="btn">Get an
                             appointment</a>
                     </div>
-                
                 @elseif (Auth::check() && Auth::user()->isDoctor())
-                    <div class="flex flex-col justify-end"> 
+                    <div class="flex flex-col justify-end">
                         <button disabled class="btn bg-gray-400 cursor-not-allowed">You are a doctor</button>
                     </div>
-
                 @else
                     <div class="flex flex-col justify-end">
                         <button disabled class="btn bg-gray-400 cursor-not-allowed">Login to Get an appointment</button>

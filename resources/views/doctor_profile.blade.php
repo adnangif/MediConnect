@@ -32,8 +32,13 @@
                 <div class="text-2xl font-bold">Consultation Fees</div>
                 <p><strong>Fees:</strong> {{ $doctor->fee }} tk only </p>
                 <br>
-                <a href="{{ route('appointment-form', $doctor->doctor_id) }}" class="btn">
-                    Get an appointment</a>
+                @if (Auth::check() && Auth::user()->isUser())
+                    <a href="{{ route('appointment-form', $doctor->doctor_id) }}" class="btn">
+                        Get an appointment</a>
+                @else
+                    <a href="{{ route('login') }}" class="btn bg-slate-400">
+                    user required</a>
+                @endif
             </div>
         </div>
 </x-layout>
